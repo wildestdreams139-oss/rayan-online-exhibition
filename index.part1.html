@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0f1112" />
+  <title>RAYAN — Same Kid, Different World · Museum Edition</title>
+  <meta name="description" content="A private online exhibition of Rayan." />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <div id="grain"></div>
+  <div id="vipRibbon" class="vip-ribbon is-hidden">VIP / OPENING NIGHT</div>
+
+  <section id="gate" class="gate" aria-label="Exhibition entrance">
+    <div class="gate-bg"></div>
+    <div class="gate-shell">
+      <div class="gate-card">
+        <div class="gate-identity">
+          <img class="museum-mark" src="assets/rayan-mark.svg" alt="Rayan exhibition mark" />
+          <div class="eyebrow">PRIVATE ONLINE EXHIBITION · 2026</div>
+        </div>
+        <h1>RAYAN</h1>
+        <div class="subtitle">SAME KID, DIFFERENT WORLD</div>
+        <div class="ticket-line"></div>
+        <div class="gate-meta">
+          <span id="scheduleText">PRIVATE PREVIEW · OPEN NOW</span>
+          <span>ADMIT ONE</span>
+        </div>
+
+        <form id="accessForm" class="access-form" autocomplete="off">
+          <label for="accessCode">INVITATION / ACCESS CODE</label>
+          <div class="access-row">
+            <input id="accessCode" type="password" inputmode="text" placeholder="RAY-••••-•••" aria-label="Access code" />
+            <button type="submit">VALIDATE</button>
+          </div>
+          <p id="gateMessage" class="gate-message">Present the code printed on your invitation.</p>
+        </form>
+
+        <div class="gate-actions">
+          <button id="viewArchive" class="text-button" type="button">VIEW EXHIBITION ARCHIVE</button>
+          <span class="serial">EXHIBITION № 0922 · CURATED FOR FRIENDS</span>
+        </div>
+      </div>
+
+      <aside class="door-notice">
+        <span class="door-number">01</span>
+        <p>PRIVATE VIEWING<br>INVITED GUESTS ONLY</p>
+        <small>Doors open together. Please keep your ticket until the museum exit.</small>
+      </aside>
+    </div>
+  </section>
+
+  <div id="openingSequence" class="opening-sequence is-hidden" aria-live="polite">
+    <div class="opening-center">
+      <div class="opening-kicker" id="openingGuest">TICKET VALIDATED</div>
+      <div class="opening-title">RAYAN</div>
+      <div class="opening-rule"></div>
+      <div class="opening-copy">THE DOORS ARE OPEN</div>
+    </div>
+  </div>
+
+  <main id="museum" class="museum is-hidden">
+    <header class="topbar">
+      <a class="brand" href="#foyer"><img src="assets/rayan-mark.svg" alt="" /> RAYAN / 2026</a>
+      <nav class="room-nav" aria-label="Museum rooms">
+        <a href="#foyer">FOYER</a>
+        <a href="#origin">01</a>
+        <a href="#transformations">02</a>
+        <a href="#worlds">03</a>
+        <a href="#special">SPECIAL</a>
+        <a href="#photospot">PHOTO</a>
+        <a href="#guestbook">GUESTBOOK</a>
+        <a href="#exit">EXIT</a>
+      </nav>
+      <div class="top-actions">
+        <button id="passportButton" class="icon-button" aria-label="Open museum passport">PASS</button>
+        <button id="mapButton" class="icon-button" aria-label="Open exhibition map">MAP</button>
+      </div>
+    </header>
+
+    <section id="foyer" class="room room-foyer" data-stamp="FOYER">
+      <div class="gallery-code">GALLERY A · ENTRY LEVEL</div>
+      <div class="room-label">FOYER / 序厅</div>
+      <div class="foyer-copy">
+        <p class="kicker">A PRIVATE VIEWING</p>
+        <h2>SAME KID.<br>DIFFERENT WORLD.</h2>
+        <p class="intro">One small figure, reimagined across moods, rooms and visual languages. The exhibition begins with the original object and follows Rayan as he steps into a series of illustrated worlds.</p>
+        <div class="visitor-strip">
+          <span id="visitorName">GUEST —</span>
+          <span id="visitorNumber">VISITOR № —</span>
+          <span id="visitDate">—</span>
+        </div>
+        <div class="foyer-note">Keep moving at your own pace. Open artworks to inspect them closely. Your museum passport is stamped automatically as you visit each room.</div>
+        <div class="foyer-wayfinding" aria-label="Museum wayfinding">
+          <div class="wayfinding-title">YOU ARE HERE / FOYER</div>
+          <a href="#origin"><b>01</b><span>THE ORIGINAL</span><i>→</i></a>
+          <a href="#transformations"><b>02</b><span>FIRST TRANSFORMATIONS</span><i>→</i></a>
+          <a href="#worlds"><b>03</b><span>DIFFERENT WORLDS</span><i>→</i></a>
+          <a href="#special"><b>S</b><span>SPECIAL EXHIBITION</span><i>→</i></a>
+          <a href="#photospot"><b>P</b><span>PHOTO / VISITOR BOOK</span><i>→</i></a>
+        </div>
+        <a href="#origin" class="next-link">BEGIN THE EXHIBITION ↓</a>
+      </div>
+      <figure class="hero-frame">
+        <img src="assets/images/03_gallery-favorite.svg" alt="Rayan street-art illustration" />
+        <figcaption>PRIVATE VIEW · SELECTED WORK</figcaption>
+      </figure>
+    </section>
+
+    <section id="origin" class="room room-gallery wall-blue" data-stamp="01 ORIGINAL">
+      <div class="gallery-code">GALLERY 01 · ORIGIN</div>
+      <div class="room-heading">
+        <div>
+          <div class="room-label">ROOM 01 / THE ORIGINAL</div>
+          <h2>Before the worlds.</h2>
+        </div>
+        <p>The exhibition starts with the physical Rayan figure: cap, green vest, frog companion and the expression that became the visual anchor for the series.</p>
+      </div>
+      <div class="single-artwork">
+        <figure class="artwork frame-light portrait-photo" data-title="The Original" data-caption="Original Rayan figure · source photograph">
+          <img src="assets/images/original.svg" alt="Original Rayan figure photograph" />
+          <figcaption><span>THE ORIGINAL</span><small>Source photograph · 2026</small></figcaption>
+        </figure>
+      </div>
+      <a href="#transformations" class="next-link room-next">NEXT ROOM →</a>
+    </section>
+
+    <section id="transformations" class="room room-gallery wall-cream" data-stamp="02 TRANSFORM">
+      <div class="gallery-code gallery-code-dark">GALLERY 02 · TRANSFORMATION</div>
+      <div class="room-heading dark-copy">
+        <div>
+          <div class="room-label">ROOM 02 / FIRST TRANSFORMATIONS</div>
+          <h2>From figure to illustration.</h2>
+        </div>
+        <p>Loose linework, graffiti marks and oversized proportions push the character away from a product photo and toward an authored visual identity.</p>
+      </div>
+      <div class="gallery-grid two-up">
+        <figure class="artwork frame-black" data-title="First Transformation" data-caption="Graffiti illustration · mixed-media texture">
+          <img src="assets/images/01_first-transformation.svg" alt="Rayan graffiti illustration" />
+          <figcaption><span>FIRST TRANSFORMATION</span><small>Mixed-media illustration</small></figcaption>
+        </figure>
+  
