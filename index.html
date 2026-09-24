@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0f1112" />
+  <title>RAYAN — Same Kid, Different World · Museum Edition</title>
+  <meta name="description" content="A private online exhibition of Rayan." />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <div id="grain"></div>
+  <div id="vipRibbon" class="vip-ribbon is-hidden">VIP / OPENING NIGHT</div>
+
+  <section id="gate" class="gate" aria-label="Exhibition entrance">
+    <div class="gate-bg"></div>
+    <div class="gate-shell">
+      <div class="gate-card">
+        <div class="gate-identity">
+          <img class="museum-mark" src="assets/rayan-mark.svg" alt="Rayan exhibition mark" />
+          <div class="eyebrow">PRIVATE ONLINE EXHIBITION · 2026</div>
+        </div>
+        <h1>RAYAN</h1>
+        <div class="subtitle">SAME KID, DIFFERENT WORLD</div>
+        <div class="ticket-line"></div>
+        <div class="gate-meta">
+          <span id="scheduleText">PRIVATE PREVIEW · OPEN NOW</span>
+          <span>ADMIT ONE</span>
+        </div>
+
+        <form id="accessForm" class="access-form" autocomplete="off">
+          <label for="accessCode">INVITATION / ACCESS CODE</label>
+          <div class="access-row">
+            <input id="accessCode" type="password" inputmode="text" placeholder="RAY-••••-•••" aria-label="Access code" />
+            <button type="submit">VALIDATE</button>
+          </div>
+          <p id="gateMessage" class="gate-message">Present the code printed on your invitation.</p>
+        </form>
+
+        <div class="gate-actions">
+          <button id="viewArchive" class="text-button" type="button">VIEW EXHIBITION ARCHIVE</button>
+          <span class="serial">EXHIBITION № 0922 · CURATED FOR FRIENDS</span>
+        </div>
+      </div>
+
+      <aside class="door-notice">
+        <span class="door-number">01</span>
+        <p>PRIVATE VIEWING<br>INVITED GUESTS ONLY</p>
+        <small>Doors open together. Please keep your ticket until the museum exit.</small>
+      </aside>
+    </div>
+  </section>
+
+  <div id="openingSequence" class="opening-sequence is-hidden" aria-live="polite">
+    <div class="opening-center">
+      <div class="opening-kicker" id="openingGuest">TICKET VALIDATED</div>
+      <div class="opening-title">RAYAN</div>
+      <div class="opening-rule"></div>
+      <div class="opening-copy">THE DOORS ARE OPEN</div>
+    </div>
+  </div>
+
+  <main id="museum" class="museum is-hidden">
+    <header class="topbar">
+      <a class="brand" href="#foyer"><img src="assets/rayan-mark.svg" alt="" /> RAYAN / 2026</a>
+      <nav class="room-nav" aria-label="Museum rooms">
+        <a href="#foyer">FOYER</a>
+        <a href="#origin">01</a>
+        <a href="#transformations">02</a>
+        <a href="#worlds">03</a>
+        <a href="#special">SPECIAL</a>
+        <a href="#photospot">PHOTO</a>
+        <a href="#guestbook">GUESTBOOK</a>
+        <a href="#exit">EXIT</a>
+      </nav>
+      <div class="top-actions">
+        <button id="passportButton" class="icon-button" aria-label="Open museum passport">PASS</button>
+        <button id="mapButton" class="icon-button" aria-label="Open exhibition map">MAP</button>
+      </div>
+    </header>
+
+    <section id="foyer" class="room room-foyer" data-stamp="FOYER">
+      <div class="gallery-code">GALLERY A · ENTRY LEVEL</div>
+      <div class="room-label">FOYER / 序厅</div>
+      <div class="foyer-copy">
+        <p class="kicker">A PRIVATE VIEWING</p>
+        <h2>SAME KID.<br>DIFFERENT WORLD.</h2>
+        <p class="intro">One small figure, reimagined across moods, rooms and visual languages. The exhibition begins with the original object and follows Rayan as he steps into a series of illustrated worlds.</p>
+        <div class="visitor-strip">
+          <span id="visitorName">GUEST —</span>
+          <span id="visitorNumber">VISITOR № —</span>
+          <span id="visitDate">—</span>
+        </div>
+        <div class="foyer-note">Keep moving at your own pace. Open artworks to inspect them closely. Your museum passport is stamped automatically as you visit each room.</div>
+        <div class="foyer-wayfinding" aria-label="Museum wayfinding">
+          <div class="wayfinding-title">YOU ARE HERE / FOYER</div>
+          <a href="#origin"><b>01</b><span>THE ORIGINAL</span><i>→</i></a>
+          <a href="#transformations"><b>02</b><span>FIRST TRANSFORMATIONS</span><i>→</i></a>
+          <a href="#worlds"><b>03</b><span>DIFFERENT WORLDS</span><i>→</i></a>
+          <a href="#special"><b>S</b><span>SPECIAL EXHIBITION</span><i>→</i></a>
+          <a href="#photospot"><b>P</b><span>PHOTO / VISITOR BOOK</span><i>→</i></a>
+        </div>
+        <a href="#origin" class="next-link">BEGIN THE EXHIBITION ↓</a>
+      </div>
+      <figure class="hero-frame">
+        <img src="assets/images/03_gallery-favorite.webp" alt="Rayan street-art illustration" />
+        <figcaption>PRIVATE VIEW · SELECTED WORK</figcaption>
+      </figure>
+    </section>
+
+    <section id="origin" class="room room-gallery wall-blue" data-stamp="01 ORIGINAL">
+      <div class="gallery-code">GALLERY 01 · ORIGIN</div>
+      <div class="room-heading">
+        <div>
+          <div class="room-label">ROOM 01 / THE ORIGINAL</div>
+          <h2>Before the worlds.</h2>
+        </div>
+        <p>The exhibition starts with the physical Rayan figure: cap, green vest, frog companion and the expression that became the visual anchor for the series.</p>
+      </div>
+      <div class="single-artwork">
+        <figure class="artwork frame-light portrait-photo" data-title="The Original" data-caption="Original Rayan figure · source photograph">
+          <img src="assets/images/original.jpg" alt="Original Rayan figure photograph" />
+          <figcaption><span>THE ORIGINAL</span><small>Source photograph · 2026</small></figcaption>
+        </figure>
+      </div>
+      <a href="#transformations" class="next-link room-next">NEXT ROOM →</a>
+    </section>
+
+    <section id="transformations" class="room room-gallery wall-cream" data-stamp="02 TRANSFORM">
+      <div class="gallery-code gallery-code-dark">GALLERY 02 · TRANSFORMATION</div>
+      <div class="room-heading dark-copy">
+        <div>
+          <div class="room-label">ROOM 02 / FIRST TRANSFORMATIONS</div>
+          <h2>From figure to illustration.</h2>
+        </div>
+        <p>Loose linework, graffiti marks and oversized proportions push the character away from a product photo and toward an authored visual identity.</p>
+      </div>
+      <div class="gallery-grid two-up">
+        <figure class="artwork frame-black" data-title="First Transformation" data-caption="Graffiti illustration · mixed-media texture">
+          <img src="assets/images/01_first-transformation.webp" alt="Rayan graffiti illustration" />
+          <figcaption><span>FIRST TRANSFORMATION</span><small>Mixed-media illustration</small></figcaption>
+        </figure>
+        <figure class="artwork frame-black" data-title="Big Mood" data-caption="Walking pose · graphic street-art treatment">
+          <img src="assets/images/02_big-mood.webp" alt="Rayan walking graffiti illustration" />
+          <figcaption><span>BIG MOOD</span><small>Street-art study</small></figcaption>
+        </figure>
+      </div>
+      <a href="#worlds" class="next-link room-next dark-link">NEXT ROOM →</a>
+    </section>
+
+    <section id="worlds" class="room room-gallery wall-charcoal" data-stamp="03 WORLDS">
+      <div class="gallery-code">GALLERY 03 · DIFFERENT WORLDS</div>
+      <div class="room-heading">
+        <div>
+          <div class="room-label">ROOM 03 / DIFFERENT WORLDS</div>
+          <h2>Same character, new atmosphere.</h2>
+        </div>
+        <p>Night streets, café alleys, backstage corners and quiet steps become emotional extensions of the same character.</p>
+      </div>
+      <div class="gallery-grid salon-grid">
+        <figure class="artwork frame-dark" data-title="Backstage" data-caption="Concert backstage · textured illustration">
+          <img src="assets/images/05_backstage.webp" alt="Rayan backstage illustration" />
+          <figcaption><span>BACKSTAGE</span><small>Different Worlds I</small></figcaption>
+        </figure>
+        <figure class="artwork frame-dark" data-title="Night City" data-caption="Neon city · cinematic illustration">
+          <img src="assets/images/06_neon-city.webp" alt="Rayan in neon city" />
+          <figcaption><span>NIGHT CITY</span><small>Different Worlds II</small></figcaption>
+        </figure>
+        <figure class="artwork frame-dark" data-title="Café Alley" data-caption="Warm café alley · painterly illustration">
+          <img src="assets/images/07_cafe-alley.webp" alt="Rayan cafe alley illustration" />
+          <figcaption><span>CAFÉ ALLEY</span><small>Different Worlds III</small></figcaption>
+        </figure>
+        <figure class="artwork frame-dark" data-title="Sunlit Alley" data-caption="Quiet daylight · hand-painted texture">
+          <img src="assets/images/08_sunlit-alley.webp" alt="Rayan in sunlit alley" />
+          <figcaption><span>SUNLIT ALLEY</span><small>Different Worlds IV</small></figcaption>
+        </figure>
+      </div>
+      <div id="secretClue" class="clue-card is-hidden">
+        <span>AN OBJECT HAS BEEN NOTICED.</span>
+        <strong>THE COMPANION KNOWS THE WAY.</strong>
+        <small>A hidden room exists somewhere in this exhibition.</small>
+      </div>
+      <a href="#special" class="next-link room-next">ENTER SPECIAL EXHIBITION →</a>
+    </section>
+
+    <section id="special" class="room room-special" data-stamp="SPECIAL">
+      <div class="gallery-code">SPECIAL EXHIBITION · LIMITED ROUTE</div>
+      <div class="special-vignette"></div>
+      <div class="room-heading special-heading">
+        <div>
+          <div class="room-label">SPECIAL ROOM / 特别展</div>
+          <h2>Private Selection.</h2>
+        </div>
+        <p>A smaller room for works that feel closest to the exhibition identity: attitude, quietness, texture and the recurring frog companion.</p>
+      </div>
+      <div id="openingEdition" class="opening-edition">
+        <span>OPENING NIGHT EDITION</span>
+        <p id="openingEditionText">Visible during the opening window and curator preview.</p>
+      </div>
+      <div class="special-stage">
+        <figure class="artwork hero-art frame-museum" data-title="Private Selection I" data-caption="Selected exhibition work">
+          <img src="assets/images/03_gallery-favorite.webp" alt="Selected Rayan illustration" />
+          <figcaption><span>PRIVATE SELECTION I</span><small>Curator's room</small></figcaption>
+        </figure>
+        <div class="special-side">
+          <figure class="artwork frame-museum" data-title="Private Selection II" data-caption="Graffiti canvas variation">
+            <img src="assets/images/04_graffiti-canvas.webp" alt="Rayan graffiti canvas" />
+            <figcaption><span>PRIVATE SELECTION II</span><small>Curator's room</small></figcaption>
+          </figure>
+          <figure class="artwork frame-museum" data-title="Quiet Steps" data-caption="Ink-wash urban steps variation">
+            <img src="assets/images/09_urban-steps.webp" alt="Rayan sitting on urban steps" />
+            <figcaption><span>QUIET STEPS</span><small>Curator's room</small></figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="secret-door-panel">
+        <div>
+          <span class="room-label">UNLISTED ACCESS</span>
+          <h3>There is one room not shown on the map.</h3>
+          <p>Enter the word suggested by the clue you found while viewing the works.</p>
+        </div>
+        <form id="secretForm" class="secret-form">
+          <input id="secretCode" autocomplete="off" placeholder="SECRET WORD" aria-label="Secret room code" />
+          <button type="submit">TRY DOOR</button>
+          <small id="secretMessage">The clue is inside the exhibition.</small>
+        </form>
+      </div>
+      <div class="secret-note">NO FLASH · STAY AS LONG AS YOU LIKE</div>
+      <a href="#photospot" class="next-link room-next">PHOTO SPOT →</a>
+    </section>
+
+    <section id="secretroom" class="room room-secret is-hidden" data-stamp="SECRET">
+      <div class="secret-curtain secret-curtain-left"></div><div class="secret-curtain secret-curtain-right"></div>
+      <div class="secretroom-mark"><span class="red-dot"></span> UNLISTED ROOM / 00 · ACCESS LOGGED</div>
+      <div class="secretroom-copy">
+        <p class="kicker">YOU FOUND IT.</p>
+        <h2>AFTER HOURS.</h2>
+        <p>The public route ends elsewhere. Room 00 is an unlisted micro-exhibition: two works, three curator fragments, no wall map.</p>
+      </div>
+      <div class="secret-ritual">
+        <span>CURATOR FRAGMENTS / TOUCH TO REVEAL</span>
+        <div class="fragment-row">
+          <button type="button" class="fragment" data-fragment="The frog is not a prop. It is the recurring witness across every world.">I</button>
+          <button type="button" class="fragment" data-fragment="The attitude stays constant while the visual language changes around him.">II</button>
+          <button type="button" class="fragment" data-fragment="Same kid. Different world. The repetition is the point.">III</button>
+        </div>
+        <p id="secretWhisper">Choose a fragment.</p>
+      </div>
+      <div class="secret-grid">
+        <figure class="artwork frame-museum" data-title="After Hours" data-caption="Hidden lounge study · unlisted room">
+          <img src="assets/images/10_lounge.webp" alt="Rayan lounging in a studio" />
+          <figcaption><span>AFTER HOURS</span><small>Secret room · 2026</small></figcaption>
+        </figure>
+        <figure class="artwork frame-museum" data-title="Character Study" data-caption="Isolated ink and graffiti character study">
+          <img src="assets/images/11_isolated-sketch.webp" alt="Rayan isolated character illustration" />
+          <figcaption><span>CHARACTER STUDY</span><small>Secret room · 2026</small></figcaption>
+        </figure>
+      </div>
+      <a href="#photospot" class="next-link room-next">RETURN TO THE PUBLIC ROUTE →</a>
+    </section>
+
+    <section id="photospot" class="room room-photo" data-stamp="PHOTO SPOT">
+      <div class="photo-wall" id="photoWall">
+        <div class="photo-tag">OFFICIAL PHOTO SPOT</div>
+        <div class="photo-title">RAYAN</div>
+        <div class="photo-subtitle">SAME KID / DIFFERENT WORLD</div>
+        <div class="crown-mark">♔</div>
+        <img class="photo-character" src="assets/images/11_isolated-sketch.webp" alt="Rayan illustrated character" />
+        <div class="photo-stamp">PRIVATE VIEW · 2026</div>
+      </div>
+      <div class="photo-controls">
+        <h2>Make your check-in.</h2>
+        <p>Use the official wall full-screen, or create a personalized museum check-in card below. Your photo stays inside your browser while the card is generated. It is uploaded only if you choose POST TO VISITOR WALL.</p>
+        <button id="fullscreenPhoto" class="museum-button">FULLSCREEN PHOTO WALL</button>
+        <form id="checkinForm" class="checkin-form">
+          <label>OPTIONAL PHOTO<input id="checkinPhoto" type="file" accept="image/*" /></label>
+          <label>CHECK-IN LINE<input id="checkinLine" maxlength="52" placeholder="I WAS HERE · OPENING NIGHT" /></label>
+          <button type="submit" class="museum-button">MAKE CHECK-IN CARD</button>
+        </form>
+        <div id="checkinPreview" class="checkin-preview is-hidden">
+          <img id="checkinImage" alt="Generated Rayan exhibition check-in card" />
+          <div class="checkin-actions"><button id="downloadCheckin" class="museum-button" type="button">SAVE CHECK-IN CARD</button><button id="postCheckin" class="museum-button ghost-dark is-hidden" type="button">POST TO VISITOR WALL</button></div>
+        </div>
+      </div>
+      <div id="checkinGallery" class="checkin-gallery is-hidden"><div class="checkin-gallery-head"><span>VISITOR CHECK-IN WALL</span><small>OPENING NIGHT POSTS</small></div><div id="checkinGalleryGrid" class="checkin-gallery-grid"></div></div>
+      <a href="#guestbook" class="next-link room-next">LEAVE YOUR MARK →</a>
+    </section>
+
+    <section id="guestbook" class="room room-guestbook" data-stamp="GUESTBOOK">
+      <div class="guestbook-copy">
+        <div class="room-label">VISITOR BOOK / 纪念签名墙</div>
+        <h2>Leave something behind.</h2>
+        <p id="guestbookModeText">Sign the wall with a name, a short note and your favorite work.</p>
+        <form id="guestbookForm" class="guest-form">
+          <input id="guestName" maxlength="24" placeholder="NAME / NICKNAME" required />
+          <select id="guestFavorite" aria-label="Favorite artwork">
+            <option value="Private Selection I">Private Selection I</option>
+            <option value="Big Mood">Big Mood</option>
+            <option value="Night City">Night City</option>
+            <option value="Café Alley">Café Alley</option>
+            <option value="Quiet Steps">Quiet Steps</option>
+            <option value="After Hours">After Hours</option>
+          </select>
+          <textarea id="guestMessage" maxlength="140" placeholder="YOUR MESSAGE" required></textarea>
+          <button type="submit">SIGN THE WALL</button>
+        </form>
+        <div class="guestbook-status" id="guestbookStatus">PRIVATE PREVIEW WALL</div>
+      </div>
+      <div id="signatureWall" class="signature-wall" aria-live="polite"></div>
+      <a href="#exit" class="next-link room-next dark-link">MUSEUM EXIT →</a>
+    </section>
+
+    <section id="exit" class="room room-exit" data-stamp="EXIT">
+      <div class="exit-card">
+        <div class="eyebrow">THANK YOU FOR VISITING</div>
+        <h2>RAYAN</h2>
+        <p>SAME KID, DIFFERENT WORLD</p>
+        <div class="exit-rule"></div>
+        <div class="exit-progress">
+          <span>MUSEUM PASSPORT</span>
+          <strong id="exitStampCount">0 / 8 ROOMS VISITED</strong>
+        </div>
+        <div class="souvenir-ticket" id="souvenirTicket">
+          <div>
+            <strong id="souvenirGuest">RAYAN / PRIVATE VIEW</strong>
+            <small>ONLINE EXHIBITION · 2026</small>
+          </div>
+          <div class="ticket-number" id="ticketNumber">№ —</div>
+        </div>
+        <div class="exit-actions">
+          <button id="downloadTicket" class="museum-button light">SAVE DIGITAL TICKET</button>
+          <button id="restartTour" class="museum-button ghost">REVISIT EXHIBITION</button>
+          <a class="museum-button ghost inline-link" href="archive.html">VIEW ARCHIVE</a>
+          <a class="museum-button ghost inline-link" href="opening-night.html">OPENING NIGHT</a>
+        </div>
+        <p class="fineprint">This exhibition exists because one character can have more than one world.</p>
+        <div class="museum-credit">RAYAN ONLINE MUSEUM · EXHIBITION ID RYN/0922/2026 · PRIVATE EDITION</div>
+      </div>
+    </section>
+
+    <div id="lightbox" class="lightbox is-hidden" role="dialog" aria-modal="true" aria-label="Artwork detail">
+      <button id="closeLightbox" class="lightbox-close" aria-label="Close">×</button>
+      <div class="lightbox-inner">
+        <img id="lightboxImage" alt="Artwork detail" />
+        <div class="lightbox-info">
+          <div id="lightboxTitle" class="lightbox-title"></div>
+          <div id="lightboxCaption" class="lightbox-caption"></div>
+          <div id="artworkViewCount" class="lightbox-meta"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="museumMap" class="map-panel is-hidden" role="dialog" aria-modal="true" aria-label="Exhibition map">
+      <button id="closeMap" class="lightbox-close" aria-label="Close map">×</button>
+      <div class="map-card">
+        <div class="eyebrow">EXHIBITION MAP</div>
+        <h3>RAYAN / SAME KID, DIFFERENT WORLD</h3>
+        <ol>
+          <li><a href="#origin">01 · The Original</a></li>
+          <li><a href="#transformations">02 · First Transformations</a></li>
+          <li><a href="#worlds">03 · Different Worlds</a></li>
+          <li><a href="#special">Special Room · Private Selection</a></li>
+          <li id="secretMapEntry" class="is-hidden"><a href="#secretroom">00 · After Hours · Unlisted Room</a></li>
+          <li><a href="#photospot">Photo Spot · Check-in Wall</a></li>
+          <li><a href="#guestbook">Visitor Book · Signature Wall</a></li>
+          <li><a href="#exit">Museum Exit · Digital Ticket</a></li>
+        </ol>
+      </div>
+    </div>
+
+    <div id="passportPanel" class="passport-panel is-hidden" role="dialog" aria-modal="true" aria-label="Museum passport">
+      <button id="closePassport" class="lightbox-close" aria-label="Close passport">×</button>
+      <div class="passport-card">
+        <div class="eyebrow dark-eyebrow">MUSEUM PASSPORT</div>
+        <h3 id="passportGuest">INVITED GUEST</h3>
+        <div class="passport-number" id="passportNumber">VISITOR № —</div>
+        <div id="stampGrid" class="stamp-grid"></div>
+        <p>Rooms are stamped when you spend a moment inside them. Find the unlisted room for the rare stamp.</p>
+      </div>
+    </div>
+  </main>
+
+  <script src="assets/shared-config.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
