@@ -1,386 +1,249 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#0f1112" />
-  <title>RAYAN — Same Kid, Different World · Museum Edition</title>
-  <meta name="description" content="A private online exhibition of Rayan." />
-  <link rel="stylesheet" href="assets/styles.css" />
-</head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="#0f1112" name="theme-color"/>
+<title>RAYAN — Same Kid, Different World · Expanded Museum Edition</title>
+<meta content="RAYAN bilingual private online exhibition — expanded museum route with public galleries and hidden horror rooms." name="description"/>
+<link href="assets/styles.css" rel="stylesheet"/>
+<style>
+.language-toggle{position:fixed;right:18px;top:18px;z-index:1300;border:1px solid rgba(255,255,255,.45);background:rgba(5,7,8,.78);backdrop-filter:blur(12px);color:#fff;padding:9px 12px;font:850 10px/1 system-ui,sans-serif;letter-spacing:.08em;cursor:pointer;border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.2)}
+.language-toggle:hover{background:#fff;color:#111}.curator-note{max-width:860px;margin:-28px 0 46px;padding:14px 18px;border-left:2px solid #9bcf4a;background:rgba(0,0,0,.12);font:650 11px/1.75 ui-monospace,monospace;letter-spacing:.015em;color:inherit;opacity:.82}.wall-cream .curator-note{background:rgba(255,255,255,.24)}
+.curated-room-grid{max-width:1100px;margin:0 auto}.curated-room-grid .artwork:nth-child(even){margin-top:8vw}.horror-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:4vw}.horror-grid .artwork:nth-child(even){margin-top:7vw}.room-secret .secret-ritual{grid-column:1/-1}.room-secret .secret-grid{grid-column:1/-1}
+.photo-salon-room{position:relative;overflow:hidden}.photo-salon-room::before{content:"PHOTO SALON";position:absolute;right:2.8vw;top:5.5rem;font:900 clamp(42px,8vw,130px)/.8 Georgia,serif;letter-spacing:-.06em;opacity:.025;pointer-events:none}
+.photo-index{display:flex;flex-wrap:wrap;gap:10px;max-width:1100px;margin:-20px auto 34px}.photo-index a{border:1px solid currentColor;padding:9px 12px;color:inherit;text-decoration:none;font:800 10px/1.1 ui-monospace,monospace;letter-spacing:.06em;opacity:.75}.photo-index a:hover{opacity:1;background:#9bcf4a;color:#111;border-color:#9bcf4a}
+.photo-method-note{max-width:1100px;margin:0 auto 42px;padding:14px 16px;border:1px solid rgba(255,255,255,.18);font:650 10px/1.65 ui-monospace,monospace;letter-spacing:.02em;opacity:.72}.wall-cream .photo-method-note{border-color:rgba(0,0,0,.18)}
+.photo-room-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:3vw;max-width:1180px;margin:0 auto}.photo-work{margin:0!important}.photo-thumb{width:100%;background-image:url("data:image/webp;base64,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[... ELLIPSIZATION ...]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");background-repeat:no-repeat;background-color:#111;box-shadow:0 18px 48px rgba(0,0,0,.22)}
+.photo-work figcaption{position:relative}.photo-work figcaption span,.photo-work figcaption small{display:block}.photo-work figcaption small{margin-top:4px;opacity:.62}.curator-pick{display:inline-block;margin-top:9px;padding:4px 7px;border:1px solid #9bcf4a;color:#9bcf4a;font:800 9px/1 ui-monospace,monospace;letter-spacing:.05em;font-style:normal}
+.r1{aspect-ratio:297/255;background-size:517.2% 401.6%}.r2{aspect-ratio:297/252;background-size:517.2% 406.3%}.r3{aspect-ratio:297/294;background-size:517.2% 348.3%}
+.p01{background-position:23% 1.95%}.p02{background-position:48.2% 1.95%}.p03{background-position:73.4% 1.95%}.p04{background-position:98.9% 1.95%}
+.p05{background-position:23% 43.5%}.p06{background-position:48.2% 43.5%}.p07{background-position:73.4% 43.5%}.p08{background-position:98.9% 43.5%}
+.p09{background-position:23% 89.5%}.p10{background-position:48.2% 89.5%}.p11{background-position:73.4% 89.5%}.p12{background-position:98.9% 89.5%}
+@media(max-width:1180px){.room-nav{gap:9px}.room-nav a{font-size:9px}.topbar{padding-left:20px;padding-right:80px}}@media(max-width:900px){.photo-room-grid{grid-template-columns:1fr 1fr}}@media(max-width:760px){.language-toggle{right:12px;top:14px}.curator-note{margin-top:-20px;margin-bottom:32px}.horror-grid{grid-template-columns:1fr}.curated-room-grid .artwork:nth-child(even),.horror-grid .artwork:nth-child(even){margin-top:0}}@media(max-width:620px){.photo-room-grid{grid-template-columns:1fr}.photo-index a{flex:1 1 46%;text-align:center}}
+</style></head>
 <body>
-  <div id="grain"></div>
-  <div id="vipRibbon" class="vip-ribbon is-hidden">VIP / OPENING NIGHT</div>
-
-  <section id="gate" class="gate" aria-label="Exhibition entrance">
-    <div class="gate-bg"></div>
-    <div class="gate-shell">
-      <div class="gate-card">
-        <div class="gate-identity">
-          <img class="museum-mark" src="assets/rayan-mark.svg" alt="Rayan exhibition mark" />
-          <div class="eyebrow">PRIVATE ONLINE EXHIBITION · 2026</div>
-        </div>
-        <h1>RAYAN</h1>
-        <div class="subtitle">SAME KID, DIFFERENT WORLD</div>
-        <div class="ticket-line"></div>
-        <div class="gate-meta">
-          <span id="scheduleText">PRIVATE PREVIEW · OPEN NOW</span>
-          <span>ADMIT ONE</span>
-        </div>
-
-        <form id="accessForm" class="access-form" autocomplete="off">
-          <label for="accessCode">INVITATION / ACCESS CODE</label>
-          <div class="access-row">
-            <input id="accessCode" type="password" inputmode="text" placeholder="RAY-••••-•••" aria-label="Access code" />
-            <button type="submit">VALIDATE</button>
-          </div>
-          <p id="gateMessage" class="gate-message">Present the code printed on your invitation.</p>
-        </form>
-
-        <div class="gate-actions">
-          <button id="viewArchive" class="text-button" type="button">VIEW EXHIBITION ARCHIVE</button>
-          <span class="serial">EXHIBITION № 0922 · CURATED FOR FRIENDS</span>
-        </div>
-      </div>
-
-      <aside class="door-notice">
-        <span class="door-number">01</span>
-        <p>PRIVATE VIEWING<br>INVITED GUESTS ONLY</p>
-        <small>Doors open together. Please keep your ticket until the museum exit.</small>
-      </aside>
-    </div>
-  </section>
-
-  <div id="openingSequence" class="opening-sequence is-hidden" aria-live="polite">
-    <div class="opening-center">
-      <div class="opening-kicker" id="openingGuest">TICKET VALIDATED</div>
-      <div class="opening-title">RAYAN</div>
-      <div class="opening-rule"></div>
-      <div class="opening-copy">THE DOORS ARE OPEN</div>
-    </div>
-  </div>
-
-  <main id="museum" class="museum is-hidden">
-    <header class="topbar">
-      <a class="brand" href="#foyer"><img src="assets/rayan-mark.svg" alt="" /> RAYAN / 2026</a>
-      <nav class="room-nav" aria-label="Museum rooms">
-        <a href="#foyer">FOYER</a>
-        <a href="#origin">01</a>
-        <a href="#transformations">02</a>
-        <a href="#worlds">03</a>
-        <a href="#special">SPECIAL</a>
-        <a href="#photospot">PHOTO</a>
-        <a href="#guestbook">GUESTBOOK</a>
-        <a href="#exit">EXIT</a>
-      </nav>
-      <div class="top-actions">
-        <button id="passportButton" class="icon-button" aria-label="Open museum passport">PASS</button>
-        <button id="mapButton" class="icon-button" aria-label="Open exhibition map">MAP</button>
-      </div>
-    </header>
-
-    <section id="foyer" class="room room-foyer" data-stamp="FOYER">
-      <div class="gallery-code">GALLERY A · ENTRY LEVEL</div>
-      <div class="room-label">FOYER / 序厅</div>
-      <div class="foyer-copy">
-        <p class="kicker">A PRIVATE VIEWING</p>
-        <h2>SAME KID.<br>DIFFERENT WORLD.</h2>
-        <p class="intro">One small figure, reimagined across moods, rooms and visual languages. The exhibition begins with the original object and follows Rayan as he steps into a series of illustrated worlds.</p>
-        <div class="visitor-strip">
-          <span id="visitorName">GUEST —</span>
-          <span id="visitorNumber">VISITOR № —</span>
-          <span id="visitDate">—</span>
-        </div>
-        <div class="foyer-note">Keep moving at your own pace. Open artworks to inspect them closely. Your museum passport is stamped automatically as you visit each room.</div>
-        <div class="foyer-wayfinding" aria-label="Museum wayfinding">
-          <div class="wayfinding-title">YOU ARE HERE / FOYER</div>
-          <a href="#origin"><b>01</b><span>THE ORIGINAL</span><i>→</i></a>
-          <a href="#transformations"><b>02</b><span>FIRST TRANSFORMATIONS</span><i>→</i></a>
-          <a href="#worlds"><b>03</b><span>DIFFERENT WORLDS</span><i>→</i></a>
-          <a href="#special"><b>S</b><span>SPECIAL EXHIBITION</span><i>→</i></a>
-          <a href="#photospot"><b>P</b><span>PHOTO / VISITOR BOOK</span><i>→</i></a>
-        </div>
-        <a href="#origin" class="next-link">BEGIN THE EXHIBITION ↓</a>
-      </div>
-      <figure class="hero-frame">
-        <img src="assets/images/03_gallery-favorite.webp" alt="Rayan street-art illustration" />
-        <figcaption>PRIVATE VIEW · SELECTED WORK</figcaption>
-      </figure>
-    </section>
-
-    <section id="origin" class="room room-gallery wall-blue" data-stamp="01 ORIGINAL">
-      <div class="gallery-code">GALLERY 01 · ORIGIN</div>
-      <div class="room-heading">
-        <div>
-          <div class="room-label">ROOM 01 / THE ORIGINAL</div>
-          <h2>Before the worlds.</h2>
-        </div>
-        <p>The exhibition starts with the physical Rayan figure: cap, green vest, frog companion and the expression that became the visual anchor for the series.</p>
-      </div>
-      <div class="single-artwork">
-        <figure class="artwork frame-light portrait-photo" data-title="The Original" data-caption="Original Rayan figure · source photograph">
-          <img src="assets/images/original.jpg" alt="Original Rayan figure photograph" />
-          <figcaption><span>THE ORIGINAL</span><small>Source photograph · 2026</small></figcaption>
-        </figure>
-      </div>
-      <a href="#transformations" class="next-link room-next">NEXT ROOM →</a>
-    </section>
-
-    <section id="transformations" class="room room-gallery wall-cream" data-stamp="02 TRANSFORM">
-      <div class="gallery-code gallery-code-dark">GALLERY 02 · TRANSFORMATION</div>
-      <div class="room-heading dark-copy">
-        <div>
-          <div class="room-label">ROOM 02 / FIRST TRANSFORMATIONS</div>
-          <h2>From figure to illustration.</h2>
-        </div>
-        <p>Loose linework, graffiti marks and oversized proportions push the character away from a product photo and toward an authored visual identity.</p>
-      </div>
-      <div class="gallery-grid two-up">
-        <figure class="artwork frame-black" data-title="First Transformation" data-caption="Graffiti illustration · mixed-media texture">
-          <img src="assets/images/01_first-transformation.webp" alt="Rayan graffiti illustration" />
-          <figcaption><span>FIRST TRANSFORMATION</span><small>Mixed-media illustration</small></figcaption>
-        </figure>
-        <figure class="artwork frame-black" data-title="Big Mood" data-caption="Walking pose · graphic street-art treatment">
-          <img src="assets/images/02_big-mood.webp" alt="Rayan walking graffiti illustration" />
-          <figcaption><span>BIG MOOD</span><small>Street-art study</small></figcaption>
-        </figure>
-      </div>
-      <a href="#worlds" class="next-link room-next dark-link">NEXT ROOM →</a>
-    </section>
-
-    <section id="worlds" class="room room-gallery wall-charcoal" data-stamp="03 WORLDS">
-      <div class="gallery-code">GALLERY 03 · DIFFERENT WORLDS</div>
-      <div class="room-heading">
-        <div>
-          <div class="room-label">ROOM 03 / DIFFERENT WORLDS</div>
-          <h2>Same character, new atmosphere.</h2>
-        </div>
-        <p>Night streets, café alleys, backstage corners and quiet steps become emotional extensions of the same character.</p>
-      </div>
-      <div class="gallery-grid salon-grid">
-        <figure class="artwork frame-dark" data-title="Backstage" data-caption="Concert backstage · textured illustration">
-          <img src="assets/images/05_backstage.webp" alt="Rayan backstage illustration" />
-          <figcaption><span>BACKSTAGE</span><small>Different Worlds I</small></figcaption>
-        </figure>
-        <figure class="artwork frame-dark" data-title="Night City" data-caption="Neon city · cinematic illustration">
-          <img src="assets/images/06_neon-city.webp" alt="Rayan in neon city" />
-          <figcaption><span>NIGHT CITY</span><small>Different Worlds II</small></figcaption>
-        </figure>
-        <figure class="artwork frame-dark" data-title="Café Alley" data-caption="Warm café alley · painterly illustration">
-          <img src="assets/images/07_cafe-alley.webp" alt="Rayan cafe alley illustration" />
-          <figcaption><span>CAFÉ ALLEY</span><small>Different Worlds III</small></figcaption>
-        </figure>
-        <figure class="artwork frame-dark" data-title="Sunlit Alley" data-caption="Quiet daylight · hand-painted texture">
-          <img src="assets/images/08_sunlit-alley.webp" alt="Rayan in sunlit alley" />
-          <figcaption><span>SUNLIT ALLEY</span><small>Different Worlds IV</small></figcaption>
-        </figure>
-      </div>
-      <div id="secretClue" class="clue-card is-hidden">
-        <span>AN OBJECT HAS BEEN NOTICED.</span>
-        <strong>THE COMPANION KNOWS THE WAY.</strong>
-        <small>A hidden room exists somewhere in this exhibition.</small>
-      </div>
-      <a href="#special" class="next-link room-next">ENTER SPECIAL EXHIBITION →</a>
-    </section>
-
-    <section id="special" class="room room-special" data-stamp="SPECIAL">
-      <div class="gallery-code">SPECIAL EXHIBITION · LIMITED ROUTE</div>
-      <div class="special-vignette"></div>
-      <div class="room-heading special-heading">
-        <div>
-          <div class="room-label">SPECIAL ROOM / 特别展</div>
-          <h2>Private Selection.</h2>
-        </div>
-        <p>A smaller room for works that feel closest to the exhibition identity: attitude, quietness, texture and the recurring frog companion.</p>
-      </div>
-      <div id="openingEdition" class="opening-edition">
-        <span>OPENING NIGHT EDITION</span>
-        <p id="openingEditionText">Visible during the opening window and curator preview.</p>
-      </div>
-      <div class="special-stage">
-        <figure class="artwork hero-art frame-museum" data-title="Private Selection I" data-caption="Selected exhibition work">
-          <img src="assets/images/03_gallery-favorite.webp" alt="Selected Rayan illustration" />
-          <figcaption><span>PRIVATE SELECTION I</span><small>Curator's room</small></figcaption>
-        </figure>
-        <div class="special-side">
-          <figure class="artwork frame-museum" data-title="Private Selection II" data-caption="Graffiti canvas variation">
-            <img src="assets/images/04_graffiti-canvas.webp" alt="Rayan graffiti canvas" />
-            <figcaption><span>PRIVATE SELECTION II</span><small>Curator's room</small></figcaption>
-          </figure>
-          <figure class="artwork frame-museum" data-title="Quiet Steps" data-caption="Ink-wash urban steps variation">
-            <img src="assets/images/09_urban-steps.webp" alt="Rayan sitting on urban steps" />
-            <figcaption><span>QUIET STEPS</span><small>Curator's room</small></figcaption>
-          </figure>
-        </div>
-      </div>
-      <div class="secret-door-panel">
-        <div>
-          <span class="room-label">UNLISTED ACCESS</span>
-          <h3>There is one room not shown on the map.</h3>
-          <p>Enter the word suggested by the clue you found while viewing the works.</p>
-        </div>
-        <form id="secretForm" class="secret-form">
-          <input id="secretCode" autocomplete="off" placeholder="SECRET WORD" aria-label="Secret room code" />
-          <button type="submit">TRY DOOR</button>
-          <small id="secretMessage">The clue is inside the exhibition.</small>
-        </form>
-      </div>
-      <div class="secret-note">NO FLASH · STAY AS LONG AS YOU LIKE</div>
-      <a href="#photospot" class="next-link room-next">PHOTO SPOT →</a>
-    </section>
-
-    <section id="secretroom" class="room room-secret is-hidden" data-stamp="SECRET">
-      <div class="secret-curtain secret-curtain-left"></div><div class="secret-curtain secret-curtain-right"></div>
-      <div class="secretroom-mark"><span class="red-dot"></span> UNLISTED ROOM / 00 · ACCESS LOGGED</div>
-      <div class="secretroom-copy">
-        <p class="kicker">YOU FOUND IT.</p>
-        <h2>AFTER HOURS.</h2>
-        <p>The public route ends elsewhere. Room 00 is an unlisted micro-exhibition: two works, three curator fragments, no wall map.</p>
-      </div>
-      <div class="secret-ritual">
-        <span>CURATOR FRAGMENTS / TOUCH TO REVEAL</span>
-        <div class="fragment-row">
-          <button type="button" class="fragment" data-fragment="The frog is not a prop. It is the recurring witness across every world.">I</button>
-          <button type="button" class="fragment" data-fragment="The attitude stays constant while the visual language changes around him.">II</button>
-          <button type="button" class="fragment" data-fragment="Same kid. Different world. The repetition is the point.">III</button>
-        </div>
-        <p id="secretWhisper">Choose a fragment.</p>
-      </div>
-      <div class="secret-grid">
-        <figure class="artwork frame-museum" data-title="After Hours" data-caption="Hidden lounge study · unlisted room">
-          <img src="assets/images/10_lounge.webp" alt="Rayan lounging in a studio" />
-          <figcaption><span>AFTER HOURS</span><small>Secret room · 2026</small></figcaption>
-        </figure>
-        <figure class="artwork frame-museum" data-title="Character Study" data-caption="Isolated ink and graffiti character study">
-          <img src="assets/images/11_isolated-sketch.webp" alt="Rayan isolated character illustration" />
-          <figcaption><span>CHARACTER STUDY</span><small>Secret room · 2026</small></figcaption>
-        </figure>
-      </div>
-      <a href="#photospot" class="next-link room-next">RETURN TO THE PUBLIC ROUTE →</a>
-    </section>
-
-    <section id="photospot" class="room room-photo" data-stamp="PHOTO SPOT">
-      <div class="photo-wall" id="photoWall">
-        <div class="photo-tag">OFFICIAL PHOTO SPOT</div>
-        <div class="photo-title">RAYAN</div>
-        <div class="photo-subtitle">SAME KID / DIFFERENT WORLD</div>
-        <div class="crown-mark">♔</div>
-        <img class="photo-character" src="assets/images/11_isolated-sketch.webp" alt="Rayan illustrated character" />
-        <div class="photo-stamp">PRIVATE VIEW · 2026</div>
-      </div>
-      <div class="photo-controls">
-        <h2>Make your check-in.</h2>
-        <p>Use the official wall full-screen, or create a personalized museum check-in card below. Your photo stays inside your browser while the card is generated. It is uploaded only if you choose POST TO VISITOR WALL.</p>
-        <button id="fullscreenPhoto" class="museum-button">FULLSCREEN PHOTO WALL</button>
-        <form id="checkinForm" class="checkin-form">
-          <label>OPTIONAL PHOTO<input id="checkinPhoto" type="file" accept="image/*" /></label>
-          <label>CHECK-IN LINE<input id="checkinLine" maxlength="52" placeholder="I WAS HERE · OPENING NIGHT" /></label>
-          <button type="submit" class="museum-button">MAKE CHECK-IN CARD</button>
-        </form>
-        <div id="checkinPreview" class="checkin-preview is-hidden">
-          <img id="checkinImage" alt="Generated Rayan exhibition check-in card" />
-          <div class="checkin-actions"><button id="downloadCheckin" class="museum-button" type="button">SAVE CHECK-IN CARD</button><button id="postCheckin" class="museum-button ghost-dark is-hidden" type="button">POST TO VISITOR WALL</button></div>
-        </div>
-      </div>
-      <div id="checkinGallery" class="checkin-gallery is-hidden"><div class="checkin-gallery-head"><span>VISITOR CHECK-IN WALL</span><small>OPENING NIGHT POSTS</small></div><div id="checkinGalleryGrid" class="checkin-gallery-grid"></div></div>
-      <a href="#guestbook" class="next-link room-next">LEAVE YOUR MARK →</a>
-    </section>
-
-    <section id="guestbook" class="room room-guestbook" data-stamp="GUESTBOOK">
-      <div class="guestbook-copy">
-        <div class="room-label">VISITOR BOOK / 纪念签名墙</div>
-        <h2>Leave something behind.</h2>
-        <p id="guestbookModeText">Sign the wall with a name, a short note and your favorite work.</p>
-        <form id="guestbookForm" class="guest-form">
-          <input id="guestName" maxlength="24" placeholder="NAME / NICKNAME" required />
-          <select id="guestFavorite" aria-label="Favorite artwork">
-            <option value="Private Selection I">Private Selection I</option>
-            <option value="Big Mood">Big Mood</option>
-            <option value="Night City">Night City</option>
-            <option value="Café Alley">Café Alley</option>
-            <option value="Quiet Steps">Quiet Steps</option>
-            <option value="After Hours">After Hours</option>
-          </select>
-          <textarea id="guestMessage" maxlength="140" placeholder="YOUR MESSAGE" required></textarea>
-          <button type="submit">SIGN THE WALL</button>
-        </form>
-        <div class="guestbook-status" id="guestbookStatus">PRIVATE PREVIEW WALL</div>
-      </div>
-      <div id="signatureWall" class="signature-wall" aria-live="polite"></div>
-      <a href="#exit" class="next-link room-next dark-link">MUSEUM EXIT →</a>
-    </section>
-
-    <section id="exit" class="room room-exit" data-stamp="EXIT">
-      <div class="exit-card">
-        <div class="eyebrow">THANK YOU FOR VISITING</div>
-        <h2>RAYAN</h2>
-        <p>SAME KID, DIFFERENT WORLD</p>
-        <div class="exit-rule"></div>
-        <div class="exit-progress">
-          <span>MUSEUM PASSPORT</span>
-          <strong id="exitStampCount">0 / 8 ROOMS VISITED</strong>
-        </div>
-        <div class="souvenir-ticket" id="souvenirTicket">
-          <div>
-            <strong id="souvenirGuest">RAYAN / PRIVATE VIEW</strong>
-            <small>ONLINE EXHIBITION · 2026</small>
-          </div>
-          <div class="ticket-number" id="ticketNumber">№ —</div>
-        </div>
-        <div class="exit-actions">
-          <button id="downloadTicket" class="museum-button light">SAVE DIGITAL TICKET</button>
-          <button id="restartTour" class="museum-button ghost">REVISIT EXHIBITION</button>
-          <a class="museum-button ghost inline-link" href="archive.html">VIEW ARCHIVE</a>
-          <a class="museum-button ghost inline-link" href="opening-night.html">OPENING NIGHT</a>
-        </div>
-        <p class="fineprint">This exhibition exists because one character can have more than one world.</p>
-        <div class="museum-credit">RAYAN ONLINE MUSEUM · EXHIBITION ID RYN/0922/2026 · PRIVATE EDITION</div>
-      </div>
-    </section>
-
-    <div id="lightbox" class="lightbox is-hidden" role="dialog" aria-modal="true" aria-label="Artwork detail">
-      <button id="closeLightbox" class="lightbox-close" aria-label="Close">×</button>
-      <div class="lightbox-inner">
-        <img id="lightboxImage" alt="Artwork detail" />
-        <div class="lightbox-info">
-          <div id="lightboxTitle" class="lightbox-title"></div>
-          <div id="lightboxCaption" class="lightbox-caption"></div>
-          <div id="artworkViewCount" class="lightbox-meta"></div>
-        </div>
-      </div>
-    </div>
-
-    <div id="museumMap" class="map-panel is-hidden" role="dialog" aria-modal="true" aria-label="Exhibition map">
-      <button id="closeMap" class="lightbox-close" aria-label="Close map">×</button>
-      <div class="map-card">
-        <div class="eyebrow">EXHIBITION MAP</div>
-        <h3>RAYAN / SAME KID, DIFFERENT WORLD</h3>
-        <ol>
-          <li><a href="#origin">01 · The Original</a></li>
-          <li><a href="#transformations">02 · First Transformations</a></li>
-          <li><a href="#worlds">03 · Different Worlds</a></li>
-          <li><a href="#special">Special Room · Private Selection</a></li>
-          <li id="secretMapEntry" class="is-hidden"><a href="#secretroom">00 · After Hours · Unlisted Room</a></li>
-          <li><a href="#photospot">Photo Spot · Check-in Wall</a></li>
-          <li><a href="#guestbook">Visitor Book · Signature Wall</a></li>
-          <li><a href="#exit">Museum Exit · Digital Ticket</a></li>
-        </ol>
-      </div>
-    </div>
-
-    <div id="passportPanel" class="passport-panel is-hidden" role="dialog" aria-modal="true" aria-label="Museum passport">
-      <button id="closePassport" class="lightbox-close" aria-label="Close passport">×</button>
-      <div class="passport-card">
-        <div class="eyebrow dark-eyebrow">MUSEUM PASSPORT</div>
-        <h3 id="passportGuest">INVITED GUEST</h3>
-        <div class="passport-number" id="passportNumber">VISITOR № —</div>
-        <div id="stampGrid" class="stamp-grid"></div>
-        <p>Rooms are stamped when you spend a moment inside them. Find the unlisted room for the rare stamp.</p>
-      </div>
-    </div>
-  </main>
-
-  <script src="assets/shared-config.js"></script>
-  <script src="assets/app.js"></script>
-</body>
+<div id="grain"></div><button aria-label="Switch language" class="language-toggle" id="languageToggle" type="button">中文</button>
+<div class="vip-ribbon is-hidden" id="vipRibbon">VIP / OPENING NIGHT</div>
+<section aria-label="Exhibition entrance" class="gate" id="gate">
+<div class="gate-bg"></div>
+<div class="gate-shell">
+<div class="gate-card">
+<div class="gate-identity">
+<img alt="Rayan exhibition mark" class="museum-mark" src="assets/rayan-mark.svg"/>
+<div class="eyebrow" data-en="PRIVATE ONLINE EXHIBITION · 2026" data-zh="私人线上展览 · 2026">PRIVATE ONLINE EXHIBITION · 2026</div>
+</div>
+<h1>RAYAN</h1>
+<div class="subtitle">SAME KID, DIFFERENT WORLD</div>
+<div class="ticket-line"></div>
+<div class="gate-meta">
+<span id="scheduleText">PRIVATE PREVIEW · OPEN NOW</span>
+<span>ADMIT ONE</span>
+</div>
+<form autocomplete="off" class="access-form" id="accessForm">
+<label data-en="INVITATION / ACCESS CODE" data-zh="邀请函 / 入场密码" for="accessCode">INVITATION / ACCESS CODE</label>
+<div class="access-row">
+<input aria-label="Access code" data-ph-en="RAY-••••-•••" data-ph-zh="输入入场密码" id="accessCode" inputmode="text" placeholder="RAY-••••-•••" type="password"/>
+<button data-en="VALIDATE" data-zh="验证入场" type="submit">VALIDATE</button>
+</div>
+<p class="gate-message" data-en="Present the code printed on your invitation." data-zh="请输入邀请函上的入场密码。" id="gateMessage">Present the code printed on your invitation.</p>
+</form>
+<div class="gate-actions">
+<button class="text-button" data-en="VIEW EXHIBITION ARCHIVE" data-zh="查看展览档案" id="viewArchive" type="button">VIEW EXHIBITION ARCHIVE</button>
+<span class="serial">EXHIBITION № 0922 · CURATED FOR FRIENDS</span>
+</div>
+</div>
+<aside class="door-notice">
+<span class="door-number">01</span>
+<p>PRIVATE VIEWING<br/>INVITED GUESTS ONLY</p>
+<small>Doors open together. Please keep your ticket until the museum exit.</small>
+</aside>
+</div>
+</section>
+<div aria-live="polite" class="opening-sequence is-hidden" id="openingSequence">
+<div class="opening-center">
+<div class="opening-kicker" id="openingGuest">TICKET VALIDATED</div>
+<div class="opening-title">RAYAN</div>
+<div class="opening-rule"></div>
+<div class="opening-copy" data-en="THE DOORS ARE OPEN" data-zh="展览入口已开启">THE DOORS ARE OPEN</div>
+</div>
+</div>
+<main class="museum is-hidden" id="museum">
+<header class="topbar">
+<a class="brand" href="#foyer"><img alt="" src="assets/rayan-mark.svg"/> RAYAN / 2026</a>
+<nav aria-label="Museum rooms" class="room-nav"><a data-en="FOYER" data-zh="序厅" href="#foyer">FOYER</a><a data-en="01" data-zh="01" href="#room01">01</a><a data-en="02" data-zh="02" href="#room02">02</a><a data-en="03" data-zh="03" href="#room03">03</a><a data-en="04" data-zh="04" href="#room04">04</a><a data-en="05" data-zh="05" href="#room05">05</a><a data-en="06" data-zh="06" href="#room06">06</a><a data-en="07" data-zh="07" href="#room07">07</a><a data-en="08" data-zh="08" href="#room08">08</a><a data-en="09" data-zh="09" href="#photo09a">09</a><a data-en="10" data-zh="10" href="#special">10</a><a data-en="CHECK-IN" data-zh="打卡" href="#photospot">CHECK-IN</a><a data-en="BOOK" data-zh="留言" href="#guestbook">BOOK</a><a data-en="EXIT" data-zh="出口" href="#exit">EXIT</a></nav>
+<div class="top-actions">
+<button aria-label="Open museum passport" class="icon-button" data-en="PASS" data-zh="护照" id="passportButton">PASS</button>
+<button aria-label="Open exhibition map" class="icon-button" data-en="MAP" data-zh="地图" id="mapButton">MAP</button>
+</div>
+</header>
+<section class="room room-foyer" data-stamp="FOYER" id="foyer">
+<div class="gallery-code">GALLERY A · ENTRY LEVEL</div>
+<div class="room-label">FOYER / 序厅</div>
+<div class="foyer-copy">
+<p class="kicker">A PRIVATE VIEWING</p>
+<h2>SAME KID.<br/>DIFFERENT WORLD.</h2>
+<p class="intro" data-en="Rayan moves through eight public galleries, an archive room, an after-hours threshold and two hidden horror rooms. Each room has its own pace and visual logic." data-zh="Rayan 将经过八间公开展厅、一间早期档案室、一个闭馆后入口，以及两间隐藏的恐怖展厅。每个房间都有自己的节奏与视觉规则。">Rayan moves through eight public galleries, an archive room, an after-hours threshold and two hidden horror rooms. Each room has its own pace and visual logic.</p>
+<div class="visitor-strip">
+<span id="visitorName">GUEST —</span>
+<span id="visitorNumber">VISITOR № —</span>
+<span id="visitDate">—</span>
+</div>
+<div class="foyer-note" data-en="Take the route slowly. Open works for a closer view, switch languages at any time, and use MAP to jump between rooms. Your museum passport records each room you enter." data-zh="可以慢慢参观。点击作品查看细节，随时切换中英文，也可以用 MAP 快速跳转。博物馆护照会自动记录你进入过的展厅。">Take the route slowly. Open works for a closer view, switch languages at any time, and use MAP to jump between rooms. Your museum passport records each room you enter.</div>
+<div aria-label="Museum wayfinding" class="foyer-wayfinding"><div class="wayfinding-title" data-en="PUBLIC ROUTE / 公开路线" data-zh="公开路线 / PUBLIC ROUTE">PUBLIC ROUTE / 公开路线</div><a href="#origin"><b>00</b><span data-en="ARCHIVE STUDIES" data-zh="早期档案">ARCHIVE STUDIES</span><i>→</i></a><a href="#room01"><b>01–04</b><span data-en="EVERYDAY WORLDS" data-zh="日常世界">EVERYDAY WORLDS</span><i>→</i></a><a href="#room05"><b>05–08</b><span data-en="ACROSS ART HISTORY" data-zh="穿越画史">ACROSS ART HISTORY</span><i>→</i></a><a href="#photo09a"><b>09</b><span data-en="PHOTO SALON" data-zh="精选摄影室">PHOTO SALON</span><i>→</i></a><a href="#special"><b>10</b><span data-en="AFTER HOURS GATE" data-zh="闭馆后入口">AFTER HOURS GATE</span><i>→</i></a><a href="#photospot"><b>P</b><span data-en="PHOTO / VISITOR BOOK" data-zh="打卡与留言">PHOTO / VISITOR BOOK</span><i>→</i></a></div>
+<a class="next-link" data-en="BEGIN THE EXHIBITION ↓" data-zh="开始参观 ↓" href="#origin">BEGIN THE EXHIBITION ↓</a>
+</div>
+<figure class="hero-frame">
+<img alt="Rayan hand-painted exhibition illustration" src="assets/images/curated/r07.webp"/>
+<figcaption>MAIN EXHIBITION · CURATOR SELECTION / 主展 · 策展精选</figcaption>
+</figure>
+</section>
+<section class="room room-gallery wall-blue" data-stamp="00 ARCHIVE" id="origin">
+<div class="gallery-code">ROOM 00 · ARCHIVE STUDIES / 早期档案</div>
+<div class="room-heading">
+<div>
+<div class="room-label" data-en="ARCHIVE STUDIES" data-zh="早期档案">ARCHIVE STUDIES</div>
+<h2 data-en="Early drawings, no source photograph." data-zh="从早期插画开始，不展示原始照片。">Early drawings, no source photograph.</h2>
+</div>
+<p data-en="Three early illustration studies remain as the visual archive. The physical source photograph is not part of the public hanging." data-zh="这里仅保留三件早期插画研究，作为视觉档案。实体来源照片不再列入公开展陈。">Three early illustration studies remain as the visual archive. The physical source photograph is not part of the public hanging.</p>
+</div>
+<div class="gallery-grid salon-grid archive-grid">
+<figure class="artwork frame-light" data-caption="A01 · Early visual archive · mixed-media illustration" data-title="First Transformation / 第一次转化"><img alt="First Rayan transformation" src="assets/images/01_first-transformation.webp"/><figcaption><span>A01 · FIRST TRANSFORMATION / 第一次转化</span><small>Archive study / 早期档案</small></figcaption></figure>
+<figure class="artwork frame-light" data-caption="A02 · Early street-art experiment" data-title="Graffiti Canvas / 涂鸦画布"><img alt="Rayan graffiti canvas" src="assets/images/04_graffiti-canvas.webp"/><figcaption><span>A02 · GRAFFITI CANVAS / 涂鸦画布</span><small>Archive study / 早期档案</small></figcaption></figure>
+<figure class="artwork frame-light" data-caption="A03 · Early everyday-world study" data-title="Café Alley — Early Study / 咖啡巷"><img alt="Early Rayan cafe alley" src="assets/images/07_cafe-alley.webp"/><figcaption><span>A03 · CAFÉ ALLEY / 咖啡巷</span><small>Archive study / 早期档案</small></figcaption></figure>
+</div>
+<a class="next-link room-next" href="#transformations">ENTER MAIN EXHIBITION →</a>
+</section>
+<section class="room room-gallery wall-cream" data-stamp="01 QUIET DAYS" id="room01"><div class="gallery-code gallery-code-dark">GALLERY 01 · QUIET DAYS / 静日</div><div class="room-heading dark-copy"><div><div class="room-label" data-en="QUIET DAYS" data-zh="静日">QUIET DAYS</div><h2 data-en="Small gestures, close light." data-zh="微小动作，近距离的光。">Small gestures, close light.</h2></div><p data-en="The main exhibition opens with ordinary pauses: a window, a stair, a companion nearby. Rayan is treated less like a mascot and more like a figure observed between moments." data-zh="主展从最普通的停顿开始：窗边、石阶、身旁的青蛙。Rayan 不再只是角色形象，而像是被捕捉在生活间隙中的人物。">The main exhibition opens with ordinary pauses: a window, a stair, a companion nearby. Rayan is treated less like a mascot and more like a figure observed between moments.</p></div><div class="curator-note" data-en="CURATOR NOTE · The main exhibition opens with ordinary pauses: a window, a stair, a companion nearby. Rayan is treated less like a mascot and more like a figure observed between moments." data-zh="策展人手记 · 主展从最普通的停顿开始：窗边、石阶、身旁的青蛙。Rayan 不再只是角色形象，而像是被捕捉在生活间隙中的人物。">CURATOR NOTE · The main exhibition opens with ordinary pauses: a window, a stair, a companion nearby. Rayan is treated less like a mascot and more like a figure observed between moments.</div><div class="gallery-grid two-up curated-room-grid"><figure class="artwork frame-black" data-caption="R01 · Hand-painted watercolor / gouache illustration · 2026" data-title="Window Daydream / 窗边发呆"><img alt="Window Daydream / 窗边发呆" src="assets/images/curated/r01.webp"/><figcaption><span>R01 · WINDOW DAYDREAM</span><small>Hand-painted watercolor / gouache illustration</small></figcaption></figure><figure class="artwork frame-black" data-caption="R02 · Everyday hand-painted illustration · 2026" data-title="Stair Rest / 石阶停驻"><img alt="Stair Rest / 石阶停驻" src="assets/images/curated/r02.webp"/><figcaption><span>R02 · STAIR REST</span><small>Everyday hand-painted illustration</small></figcaption></figure></div><a class="next-link room-next dark-link" data-en="ROOM 02 →" data-zh="进入展厅 02 →" href="#room02">ROOM 02 →</a></section><section class="room room-gallery wall-blue" data-stamp="02 CAFE STUDIO" id="room02"><div class="gallery-code">GALLERY 02 · CAFÉ &amp; STUDIO / 咖啡与工作室</div><div class="room-heading"><div><div class="room-label" data-en="CAFÉ &amp; STUDIO" data-zh="咖啡与工作室">CAFÉ &amp; STUDIO</div><h2 data-en="Places become portraits." data-zh="空间也成为肖像。">Places become portraits.</h2></div><p data-en="The café and studio rooms shift the emphasis from pose to environment. Tables, paper, windows and worn surfaces tell us how this character occupies a day." data-zh="咖啡馆与工作室把重点从“摆姿势”转向“人在空间里如何生活”。桌面、画纸、窗光与旧墙面共同构成角色的日常。">The café and studio rooms shift the emphasis from pose to environment. Tables, paper, windows and worn surfaces tell us how this character occupies a day.</p></div><div class="curator-note" data-en="CURATOR NOTE · The café and studio rooms shift the emphasis from pose to environment. Tables, paper, windows and worn surfaces tell us how this character occupies a day." data-zh="策展人手记 · 咖啡馆与工作室把重点从“摆姿势”转向“人在空间里如何生活”。桌面、画纸、窗光与旧墙面共同构成角色的日常。">CURATOR NOTE · The café and studio rooms shift the emphasis from pose to environment. Tables, paper, windows and worn surfaces tell us how this character occupies a day.</div><div class="gallery-grid two-up curated-room-grid"><figure class="artwork frame-black" data-caption="R03 · Painterly café-street illustration · 2026" data-title="Café Alley / 咖啡巷"><img alt="Café Alley / 咖啡巷" src="assets/images/curated/r03.webp"/><figcaption><span>R03 · CAFÉ ALLEY</span><small>Painterly café-street illustration</small></figcaption></figure><figure class="artwork frame-black" data-caption="R04 · Artist-studio narrative illustration · 2026" data-title="Studio Corner / 工作室角落"><img alt="Studio Corner / 工作室角落" src="assets/images/curated/r04.webp"/><figcaption><span>R04 · STUDIO CORNER</span><small>Artist-studio narrative illustration</small></figcaption></figure></div><a class="next-link room-next" data-en="ROOM 03 →" data-zh="进入展厅 03 →" href="#room03">ROOM 03 →</a></section><section class="room room-gallery wall-charcoal" data-stamp="03 TWILIGHT" id="room03"><div class="gallery-code">GALLERY 03 · TWILIGHT &amp; REST / 黄昏与休憩</div><div class="room-heading"><div><div class="room-label" data-en="TWILIGHT &amp; REST" data-zh="黄昏与休憩">TWILIGHT &amp; REST</div><h2 data-en="Movement, then stillness." data-zh="先移动，再停下来。">Movement, then stillness.</h2></div><p data-en="A walk at dusk and a pause on a bench form a small diptych about movement and rest. The background stays quiet so the body language can carry the mood." data-zh="黄昏行走与长椅休息形成一组关于“移动与停留”的双联画。背景保持克制，让姿态本身成为情绪。">A walk at dusk and a pause on a bench form a small diptych about movement and rest. The background stays quiet so the body language can carry the mood.</p></div><div class="curator-note" data-en="CURATOR NOTE · A walk at dusk and a pause on a bench form a small diptych about movement and rest. The background stays quiet so the body language can carry the mood." data-zh="策展人手记 · 黄昏行走与长椅休息形成一组关于“移动与停留”的双联画。背景保持克制，让姿态本身成为情绪。">CURATOR NOTE · A walk at dusk and a pause on a bench form a small diptych about movement and rest. The background stays quiet so the body language can carry the mood.</div><div class="gallery-grid two-up curated-room-grid"><figure class="artwork frame-black" data-caption="R05 · Twilight narrative illustration · 2026" data-title="Evening Walk / 傍晚回望"><img alt="Evening Walk / 傍晚回望" src="assets/images/curated/r05.webp"/><figcaption><span>R05 · EVENING WALK</span><small>Twilight narrative illustration</small></figcaption></figure><figure class="artwork frame-black" data-caption="R06 · Park-life illustration · 2026" data-title="Bench Rest / 长椅小憩"><img alt="Bench Rest / 长椅小憩" src="assets/images/curated/r06.webp"/><figcaption><span>R06 · BENCH REST</span><small>Park-life illustration</small></figcaption></figure></div><a class="next-link room-next" data-en="ROOM 04 →" data-zh="进入展厅 04 →" href="#room04">ROOM 04 →</a></section><section class="room room-gallery wall-cream" data-stamp="04 IDENTITY" id="room04"><div class="gallery-code gallery-code-dark">GALLERY 04 · IDENTITY &amp; MOOD / 人物与情绪</div><div class="room-heading dark-copy"><div><div class="room-label" data-en="IDENTITY &amp; MOOD" data-zh="人物与情绪">IDENTITY &amp; MOOD</div><h2 data-en="The character becomes a sign." data-zh="人物开始成为一种符号。">The character becomes a sign.</h2></div><p data-en="These two works push Rayan closest to a title image: attitude, headphones, frog iconography and hand-painted marks are reduced into a recognizable exhibition language." data-zh="这两件作品最接近展览的主视觉：情绪、耳机、青蛙符号与手绘痕迹，被压缩成一套容易辨认的展览语言。">These two works push Rayan closest to a title image: attitude, headphones, frog iconography and hand-painted marks are reduced into a recognizable exhibition language.</p></div><div class="curator-note" data-en="CURATOR NOTE · These two works push Rayan closest to a title image: attitude, headphones, frog iconography and hand-painted marks are reduced into a recognizable exhibition language." data-zh="策展人手记 · 这两件作品最接近展览的主视觉：情绪、耳机、青蛙符号与手绘痕迹，被压缩成一套容易辨认的展览语言。">CURATOR NOTE · These two works push Rayan closest to a title image: attitude, headphones, frog iconography and hand-painted marks are reduced into a recognizable exhibition language.</div><div class="gallery-grid two-up curated-room-grid"><figure class="artwork frame-black" data-caption="R07 · Street-painted title work · 2026" data-title="Same Kid, Different World / 同一个孩子，不同世界"><img alt="Same Kid, Different World / 同一个孩子，不同世界" src="assets/images/curated/r07.webp"/><figcaption><span>R07 · SAME KID, DIFFERENT WORLD</span><small>Street-painted title work</small></figcaption></figure><figure class="artwork frame-black" data-caption="R08 · Music and everyday-life illustration · 2026" data-title="Nothing Much Today / 无事发生的下午"><img alt="Nothing Much Today / 无事发生的下午" src="assets/images/curated/r08.webp"/><figcaption><span>R08 · NOTHING MUCH TODAY</span><small>Music and everyday-life illustration</small></figcaption></figure></div><a class="next-link room-next dark-link" data-en="ROOM 05 →" data-zh="进入展厅 05 →" href="#room05">ROOM 05 →</a></section><section class="room room-gallery wall-blue" data-stamp="05 INK PRINT" id="room05"><div class="gallery-code">GALLERY 05 · INK &amp; PRINT / 水墨与版画</div><div class="room-heading"><div><div class="room-label" data-en="INK &amp; PRINT" data-zh="水墨与版画">INK &amp; PRINT</div><h2 data-en="Across East Asian picture traditions." data-zh="进入东方绘画与版画语言。">Across East Asian picture traditions.</h2></div><p data-en="Ink-wash space and woodblock rhythm ask the same question in two ways: how much can the world change while the character remains unmistakably Rayan?" data-zh="水墨的留白与木版画的节奏，用两种方式提出同一个问题：世界可以改变到什么程度，而 Rayan 仍然一眼可认？">Ink-wash space and woodblock rhythm ask the same question in two ways: how much can the world change while the character remains unmistakably Rayan?</p></div><div class="curator-note" data-en="CURATOR NOTE · Ink-wash space and woodblock rhythm ask the same question in two ways: how much can the world change while the character remains unmistakably Rayan?" data-zh="策展人手记 · 水墨的留白与木版画的节奏，用两种方式提出同一个问题：世界可以改变到什么程度，而 Rayan 仍然一眼可认？">CURATOR NOTE · Ink-wash space and woodblock rhythm ask the same question in two ways: how much can the world change while the character remains unmistakably Rayan?</div><div class="gallery-grid two-up curated-room-grid"><figure class="artwork frame-dark" data-caption="R09 · Ink-wash landscape · 2026" data-title="Sitting by the Quiet Stream / 溪山独坐"><img alt="Sitting by the Quiet Stream / 溪山独坐" src="assets/images/curated/r09.webp"/><figcaption><span>R09 · SITTING BY THE QUIET STREAM</span><small>Ink-wash landscape</small></figcaption></figure><figure class="artwork frame-dark" data-caption="R10 · Woodblock / ukiyo-e language · 2026" data-title="Sound of Waves / 潮声"><img alt="Sound of Waves / 潮声" src="assets/images/curated/r10.webp"/><figcaption><span>R10 · SOUND OF WAVES</span><small>Woodblock / ukiyo-e language</small></figcaption></figure></div><a class="next-link room-next" data-en="ROOM 06 →" data-zh="进入展厅 06 →" href="#room06">ROOM 06 →</a></section><section class="room room-gallery wall-charcoal" data-stamp="06 WALL OIL" id="room06"><div class="gallery-code">GALLERY 06 · MURAL &amp; OIL / 壁画与油画</div><div class="room-heading"><div><div class="room-label" data-en="MURAL &amp; OIL" data-zh="壁画与油画">MURAL &amp; OIL</div><h2 data-en="Surface, pigment, portrait." data-zh="表面、颜料与肖像。">Surface, pigment, portrait.</h2></div><p data-en="Mineral-pigment mural language meets the formal gravity of an old-master portrait. The costumes stay familiar while the pictorial rules change completely." data-zh="矿物颜料般的壁画质感，与古典油画肖像的庄重相遇。服装仍然熟悉，但画面的规则已经完全改变。">Mineral-pigment mural language meets the formal gravity of an old-master portrait. The costumes stay familiar while the pictorial rules change completely.</p></div><div class="curator-note" data-en="CURATOR NOTE · Mineral-pigment mural language meets the formal gravity of an old-master portrait. The costumes stay familiar while the pictorial rules change completely." data-zh="策展人手记 · 矿物颜料般的壁画质感，与古典油画肖像的庄重相遇。服装仍然熟悉，但画面的规则已经完全改变。">CURATOR NOTE · Mineral-pigment mural language meets the formal gravity of an old-master portrait. The costumes stay familiar while the pictorial rules change completely.</div><div class="gallery-grid two-up curated-room-grid"><figure class="artwork frame-dark" data-caption="R11 · Mural / mineral-pigment language · 2026" data-title="Echoes of the Wall / 云阙"><img alt="Echoes of the Wall / 云阙" src="assets/images/curated/r11.webp"/><figcaption><span>R11 · ECHOES OF THE WALL</span><small>Mural / mineral-pigment language</small></figcaption></figure><figure class="artwork frame-dark" data-caption="R12 · Old-master oil portrait language · 2026" data-title="Boy in the Red Chair / 红椅上的孩子"><img alt="Boy in the Red Chair / 红椅上的孩子" src="assets/images/curated/r12.webp"/><figcaption><span>R12 · BOY IN THE RED CHAIR</span><small>Old-master oil portrait language</small></figcaption></figure></div><a class="next-link room-next" data-en="ROOM 07 →" data-zh="进入展厅 07 →" href="#room07">ROOM 07 →</a></section><section class="room room-gallery wall-cream" data-stamp="07 LIGHT NIGHT" id="room07"><div class="gallery-code gallery-code-dark">GALLERY 07 · LIGHT &amp; NIGHT / 光与夜色</div><div class="room-heading dark-copy"><div><div class="room-label" data-en="LIGHT &amp; NIGHT" data-zh="光与夜色">LIGHT &amp; NIGHT</div><h2 data-en="Daylight dissolves; night reflects." data-zh="日光散开，夜色开始反射。">Daylight dissolves; night reflects.</h2></div><p data-en="The garden study is built from broken daylight; the river scene gathers that light back into reflections. Together they form the most atmospheric room in the historical route." data-zh="花园作品由破碎的日光组成；河岸夜景则把光重新收进水面倒影。它们构成画史路线里最强调气氛的一间展厅。">The garden study is built from broken daylight; the river scene gathers that light back into reflections. Together they form the most atmospheric room in the historical route.</p></div><div class="curator-note" data-en="CURATOR NOTE · The garden study is built from broken daylight; the river scene gathers that light back into reflections. Together they form the most atmospheric room in the historical route." data-zh="策展人手记 · 花园作品由破碎的日光组成；河岸夜景则把光重新收进水面倒影。它们构成画史路线里最强调气氛的一间展厅。">CURATOR NOTE · The garden study is built from broken daylight; the river scene gathers that light back into reflections. Together they form the most atmospheric room in the historical route.</div><div class="gallery-grid two-up curated-room-grid"><figure class="artwork frame-dark" data-caption="R13 · Impressionist light study · 2026" data-title="Afternoon in the Garden / 花园午后"><img alt="Afternoon in the Garden / 花园午后" src="assets/images/curated/r13.webp"/><figcaption><span>R13 · AFTERNOON IN THE GARDEN</span><small>Impressionist light study</small></figcaption></figure><figure class="artwork frame-dark" data-caption="R14 · Post-impressionist night study · 2026" data-title="Moonlit Riverside / 月下河岸"><img alt="Moonlit Riverside / 月下河岸" src="assets/images/curated/r14.webp"/><figcaption><span>R14 · MOONLIT RIVERSIDE</span><small>Post-impressionist night study</small></figcaption></figure></div><a class="next-link room-next dark-link" data-en="ROOM 08 →" data-zh="进入展厅 08 →" href="#room08">ROOM 08 →</a></section><section class="room room-gallery wall-blue" data-stamp="08 ORNAMENT FORM" id="room08"><div class="gallery-code">GALLERY 08 · ORNAMENT &amp; FORM / 装饰与形式</div><div class="room-heading"><div><div class="room-label" data-en="ORNAMENT &amp; FORM" data-zh="装饰与形式">ORNAMENT &amp; FORM</div><h2 data-en="From floral line to geometry." data-zh="从花饰线条走向几何。">From floral line to geometry.</h2></div><p data-en="The final art-history room moves toward design: floral framing becomes graphic structure, then gives way to pure geometry and controlled color fields." data-zh="最后一间画史展厅逐渐走向设计：花卉装饰先变成图形结构，再进一步简化为几何与受控制的色面。">The final art-history room moves toward design: floral framing becomes graphic structure, then gives way to pure geometry and controlled color fields.</p></div><div class="curator-note" data-en="CURATOR NOTE · The final art-history room moves toward design: floral framing becomes graphic structure, then gives way to pure geometry and controlled color fields." data-zh="策展人手记 · 最后一间画史展厅逐渐走向设计：花卉装饰先变成图形结构，再进一步简化为几何与受控制的色面。">CURATOR NOTE · The final art-history room moves toward design: floral framing becomes graphic structure, then gives way to pure geometry and controlled color fields.</div><div class="gallery-grid two-up curated-room-grid"><figure class="artwork frame-dark" data-caption="R15 · Art Nouveau decorative illustration · 2026" data-title="Framed by Lilies / 百合框景"><img alt="Framed by Lilies / 百合框景" src="assets/images/curated/r15.webp"/><figcaption><span>R15 · FRAMED BY LILIES</span><small>Art Nouveau decorative illustration</small></figcaption></figure><figure class="artwork frame-dark" data-caption="R16 · Modernist geometric composition · 2026" data-title="Geometric Mood / 几何情绪"><img alt="Geometric Mood / 几何情绪" src="assets/images/curated/r16.webp"/><figcaption><span>R16 · GEOMETRIC MOOD</span><small>Modernist geometric composition</small></figcaption></figure></div><a class="next-link room-next" data-en="AFTER HOURS GATE →" data-zh="进入闭馆后入口 →" href="#photo09a" data-en="PHOTO SALON →" data-zh="进入精选摄影室 →">PHOTO SALON →</a></section>
+<section id="photo09a" class="room room-gallery photo-salon-room wall-charcoal" data-stamp="09A PORTRAITS"><div class="gallery-code">PHOTO SALON · A / PORTRAITS / 肖像</div><div class="room-heading"><div><div class="room-label" data-en="PORTRAITS" data-zh="肖像">PORTRAITS</div><h2 data-en="The figure before the fiction." data-zh="故事之前的角色。">The figure before the fiction.</h2></div><p data-en="Expression, cap and companion open the salon. These are photographic studies, not the deleted source photograph." data-zh="摄影室从表情、帽子与青蛙伙伴开始。这些是重新构成的摄影研究，不展示已删除的原始照片。">Expression, cap and companion open the salon. These are photographic studies, not the deleted source photograph.</p></div><div class="photo-index"><a href="#photo09a" data-en="A · PORTRAITS" data-zh="A · 肖像">A · PORTRAITS</a><a href="#photo09b" data-en="B · FORM & DETAIL" data-zh="B · 造型与细节">B · FORM & DETAIL</a><a href="#photo09c" data-en="C · LIGHT STUDIES" data-zh="C · 光线研究">C · LIGHT STUDIES</a><a href="#photo09d" data-en="D · ENVIRONMENT" data-zh="D · 环境肖像">D · ENVIRONMENT</a></div><div class="photo-method-note" data-en="PHOTO METHOD · Studio-reconstructed photographic studies based on the Rayan figure. The deleted source photograph remains excluded from the public exhibition." data-zh="摄影说明 · 这些作品以 Rayan 实体形象为基础进行摄影化重构；已删除的原始照片继续排除在公开展陈之外。">PHOTO METHOD · Studio-reconstructed photographic studies based on the Rayan figure. The deleted source photograph remains excluded from the public exhibition.</div><div class="gallery-grid photo-room-grid"><figure class="artwork frame-museum photo-work" id="p01" data-title="Quiet Portrait / 静默肖像" data-caption="P01 · Portrait study / 肖像研究 · 2026"><div class="photo-thumb r1 p01" role="img" aria-label="Quiet Portrait / 静默肖像"></div><figcaption><span data-en="P01 · QUIET PORTRAIT" data-zh="P01 · 静默肖像">P01 · QUIET PORTRAIT</span><small data-en="Portrait study" data-zh="肖像研究">Portrait study</small><em class="curator-pick" data-en="CURATOR’S SELECTION" data-zh="策展精选">CURATOR’S SELECTION</em></figcaption></figure><figure class="artwork frame-museum photo-work" id="p02" data-title="The Companion / 青蛙伙伴" data-caption="P02 · Figure and companion study / 角色与伙伴研究 · 2026"><div class="photo-thumb r1 p02" role="img" aria-label="The Companion / 青蛙伙伴"></div><figcaption><span data-en="P02 · THE COMPANION" data-zh="P02 · 青蛙伙伴">P02 · THE COMPANION</span><small data-en="Figure and companion study" data-zh="角色与伙伴研究">Figure and companion study</small></figcaption></figure><figure class="artwork frame-museum photo-work" id="p03" data-title="Under the Cap / 帽檐之下" data-caption="P03 · Close portrait / shadow study / 近景肖像 / 阴影研究 · 2026"><div class="photo-thumb r1 p03" role="img" aria-label="Under the Cap / 帽檐之下"></div><figcaption><span data-en="P03 · UNDER THE CAP" data-zh="P03 · 帽檐之下">P03 · UNDER THE CAP</span><small data-en="Close portrait / shadow study" data-zh="近景肖像 / 阴影研究">Close portrait / shadow study</small></figcaption></figure></div><a class="next-link room-next" href="#photo09b" data-en="PHOTO SALON B →" data-zh="进入摄影室 B →">PHOTO SALON B →</a></section><section id="photo09b" class="room room-gallery photo-salon-room wall-cream" data-stamp="09B FORM DETAIL"><div class="gallery-code gallery-code-dark">PHOTO SALON · B / FORM & DETAIL / 造型与细节</div><div class="room-heading dark-copy"><div><div class="room-label" data-en="FORM & DETAIL" data-zh="造型与细节">FORM & DETAIL</div><h2 data-en="Clothing, scale, attitude." data-zh="服装、比例与姿态。">Clothing, scale, attitude.</h2></div><p data-en="Vest, silhouette and stance are treated as formal elements, like a small sculpture rather than a product." data-zh="背心、轮廓与站姿被当作形式元素处理，让角色更像一件小型雕塑，而不是商品。">Vest, silhouette and stance are treated as formal elements, like a small sculpture rather than a product.</p></div><div class="gallery-grid photo-room-grid"><figure class="artwork frame-museum photo-work" id="p04" data-title="Olive Study / 绿色制服" data-caption="P04 · Wardrobe / color study / 服装 / 色彩研究 · 2026"><div class="photo-thumb r1 p04" role="img" aria-label="Olive Study / 绿色制服"></div><figcaption><span data-en="P04 · OLIVE STUDY" data-zh="P04 · 绿色制服">P04 · OLIVE STUDY</span><small data-en="Wardrobe / color study" data-zh="服装 / 色彩研究">Wardrobe / color study</small></figcaption></figure><figure class="artwork frame-museum photo-work" id="p05" data-title="Standing Still / 小小站立者" data-caption="P05 · Full-figure study / 全身造型研究 · 2026"><div class="photo-thumb r2 p05" role="img" aria-label="Standing Still / 小小站立者"></div><figcaption><span data-en="P05 · STANDING STILL" data-zh="P05 · 小小站立者">P05 · STANDING STILL</span><small data-en="Full-figure study" data-zh="全身造型研究">Full-figure study</small></figcaption></figure><figure class="artwork frame-museum photo-work" id="p06" data-title="Side Light / 侧光" data-caption="P06 · Low-key light study / 低照度光线研究 · 2026"><div class="photo-thumb r2 p06" role="img" aria-label="Side Light / 侧光"></div><figcaption><span data-en="P06 · SIDE LIGHT" data-zh="P06 · 侧光">P06 · SIDE LIGHT</span><small data-en="Low-key light study" data-zh="低照度光线研究">Low-key light study</small><em class="curator-pick" data-en="CURATOR’S SELECTION" data-zh="策展精选">CURATOR’S SELECTION</em></figcaption></figure></div><a class="next-link room-next dark-link" href="#photo09c" data-en="PHOTO SALON C →" data-zh="进入摄影室 C →">PHOTO SALON C →</a></section><section id="photo09c" class="room room-gallery photo-salon-room wall-blue" data-stamp="09C LIGHT STUDIES"><div class="gallery-code">PHOTO SALON · C / LIGHT STUDIES / 光线研究</div><div class="room-heading"><div><div class="room-label" data-en="LIGHT STUDIES" data-zh="光线研究">LIGHT STUDIES</div><h2 data-en="One figure, three temperatures of light." data-zh="同一个角色，三种光线温度。">One figure, three temperatures of light.</h2></div><p data-en="White daylight, window reflection and long afternoon shadow shift the mood without changing the character." data-zh="白色日光、窗边反射与午后长影，在不改变角色的情况下改变情绪温度。">White daylight, window reflection and long afternoon shadow shift the mood without changing the character.</p></div><div class="gallery-grid photo-room-grid"><figure class="artwork frame-museum photo-work" id="p07" data-title="White Room / 白色房间" data-caption="P07 · High-key daylight study / 高调日光研究 · 2026"><div class="photo-thumb r2 p07" role="img" aria-label="White Room / 白色房间"></div><figcaption><span data-en="P07 · WHITE ROOM" data-zh="P07 · 白色房间">P07 · WHITE ROOM</span><small data-en="High-key daylight study" data-zh="高调日光研究">High-key daylight study</small></figcaption></figure><figure class="artwork frame-museum photo-work" id="p08" data-title="By the Window / 窗边" data-caption="P08 · Window-light environment portrait / 窗光环境肖像 · 2026"><div class="photo-thumb r2 p08" role="img" aria-label="By the Window / 窗边"></div><figcaption><span data-en="P08 · BY THE WINDOW" data-zh="P08 · 窗边">P08 · BY THE WINDOW</span><small data-en="Window-light environment portrait" data-zh="窗光环境肖像">Window-light environment portrait</small></figcaption></figure><figure class="artwork frame-museum photo-work" id="p09" data-title="Afternoon Shadow / 午后影子" data-caption="P09 · Warm shadow study / 暖色长影研究 · 2026"><div class="photo-thumb r3 p09" role="img" aria-label="Afternoon Shadow / 午后影子"></div><figcaption><span data-en="P09 · AFTERNOON SHADOW" data-zh="P09 · 午后影子">P09 · AFTERNOON SHADOW</span><small data-en="Warm shadow study" data-zh="暖色长影研究">Warm shadow study</small></figcaption></figure></div><a class="next-link room-next" href="#photo09d" data-en="PHOTO SALON D →" data-zh="进入摄影室 D →">PHOTO SALON D →</a></section><section id="photo09d" class="room room-gallery photo-salon-room wall-charcoal" data-stamp="09D ENVIRONMENT"><div class="gallery-code">PHOTO SALON · D / ENVIRONMENT / 环境肖像</div><div class="room-heading"><div><div class="room-label" data-en="ENVIRONMENT" data-zh="环境肖像">ENVIRONMENT</div><h2 data-en="Detail, monument, after closing." data-zh="细节、纪念碑与闭馆之后。">Detail, monument, after closing.</h2></div><p data-en="Frog detail, low-angle monumentality and after-hours darkness form a bridge toward the hidden collection." data-zh="青蛙细节、低机位纪念碑感与闭馆后的黑暗，为隐藏展区建立过渡。">Frog detail, low-angle monumentality and after-hours darkness form a bridge toward the hidden collection.</p></div><div class="gallery-grid photo-room-grid"><figure class="artwork frame-museum photo-work" id="p10" data-title="Frog Detail / 青蛙特写" data-caption="P10 · Companion detail study / 伙伴细节研究 · 2026"><div class="photo-thumb r3 p10" role="img" aria-label="Frog Detail / 青蛙特写"></div><figcaption><span data-en="P10 · FROG DETAIL" data-zh="P10 · 青蛙特写">P10 · FROG DETAIL</span><small data-en="Companion detail study" data-zh="伙伴细节研究">Companion detail study</small></figcaption></figure><figure class="artwork frame-museum photo-work" id="p11" data-title="Small Monument / 低角度" data-caption="P11 · Low-angle environmental portrait / 低机位环境肖像 · 2026"><div class="photo-thumb r3 p11" role="img" aria-label="Small Monument / 低角度"></div><figcaption><span data-en="P11 · SMALL MONUMENT" data-zh="P11 · 低角度">P11 · SMALL MONUMENT</span><small data-en="Low-angle environmental portrait" data-zh="低机位环境肖像">Low-angle environmental portrait</small><em class="curator-pick" data-en="CURATOR’S SELECTION" data-zh="策展精选">CURATOR’S SELECTION</em></figcaption></figure><figure class="artwork frame-museum photo-work" id="p12" data-title="After Closing / 闭馆之后" data-caption="P12 · After-hours photographic study / 闭馆后摄影研究 · 2026"><div class="photo-thumb r3 p12" role="img" aria-label="After Closing / 闭馆之后"></div><figcaption><span data-en="P12 · AFTER CLOSING" data-zh="P12 · 闭馆之后">P12 · AFTER CLOSING</span><small data-en="After-hours photographic study" data-zh="闭馆后摄影研究">After-hours photographic study</small></figcaption></figure></div><a class="next-link room-next" href="#special" data-en="AFTER HOURS GATE →" data-zh="进入闭馆后入口 →">AFTER HOURS GATE →</a></section><section class="room room-special" data-stamp="10 AFTER HOURS" id="special">
+<div class="gallery-code">ROOM 10 · AFTER HOURS GATE / 闭馆后入口</div>
+<div class="special-vignette"></div>
+<div class="room-heading special-heading">
+<div><div class="room-label" data-en="AFTER HOURS GATE" data-zh="闭馆后入口">AFTER HOURS GATE</div><h2 data-en="The museum changes after dark." data-zh="闭馆以后，博物馆开始改变。">The museum changes after dark.</h2></div>
+<p data-en="The public exhibition ends here. The unlisted room contains a separate HORROR collection and is intentionally kept away from the main galleries." data-zh="公开路线在这里暂时结束。未列入地图的区域收藏了一组独立的 HORROR 作品，与主展保持距离。">The public exhibition ends here. The unlisted room contains a separate HORROR collection and is intentionally kept away from the main galleries.</p>
+</div>
+<div class="opening-edition" id="openingEdition"><span>SECRET ROOM · 8 WORKS</span><p id="openingEditionText">No preview images are shown on the public route.</p></div>
+<div aria-hidden="true" class="afterhours-door"><div class="afterhours-number">00</div><div>AFTER HOURS<br/><small>UNLISTED COLLECTION</small></div></div>
+<div class="secret-door-panel"><div><span class="room-label">UNLISTED ACCESS</span><h3 data-en="Room 00 is not shown on the public map." data-zh="地图上还有两间没有标出的房间。">Room 00 is not shown on the public map.</h3><p data-en="Enter the word suggested by the recurring companion." data-zh="输入反复出现的伙伴所暗示的英文单词。">Enter the word suggested by the recurring companion.</p></div><form class="secret-form" id="secretForm"><input aria-label="Secret room code" autocomplete="off" id="secretCode" placeholder="SECRET WORD"/><button data-en="TRY DOOR" data-zh="尝试开门" type="submit">TRY DOOR</button><small id="secretMessage">The clue is inside the exhibition.</small></form></div>
+<div class="secret-note">HORROR COLLECTION · LOW LIGHT · NO PREVIEW</div>
+<a class="next-link room-next" href="#photospot">CONTINUE PUBLIC ROUTE →</a>
+</section>
+<section class="room room-secret is-hidden" data-stamp="S1 UNCANNY" id="secretroom"><div class="secret-curtain secret-curtain-left"></div><div class="secret-curtain secret-curtain-right"></div><div class="secretroom-mark">SECRET ROOM S1 · UNCANNY ROOMS / 异常空间</div><div class="secretroom-copy"><p class="kicker" data-en="ACCESS GRANTED." data-zh="隐藏入口已开启。">ACCESS GRANTED.</p><h2 data-en="UNCANNY ROOMS." data-zh="异常空间。">UNCANNY ROOMS.</h2><p data-en="Domestic rooms, mirrors, hospitals and abandoned attractions turn familiar places into traps for attention." data-zh="旧宅、镜子、病房与闭园游乐场，把熟悉空间变成持续牵引视线的陷阱。">Domestic rooms, mirrors, hospitals and abandoned attractions turn familiar places into traps for attention.</p></div><div class="secret-ritual" data-en="CURATOR FRAGMENT · The horror rooms keep Rayan recognizable while making the space around him unreliable." data-zh="策展人碎片 · 恐怖展厅始终保留 Rayan 的可辨识度，但让他周围的空间变得不可信。">CURATOR FRAGMENT · The horror rooms keep Rayan recognizable while making the space around him unreliable.</div><div class="secret-grid horror-grid"><figure class="artwork frame-museum horror-work" data-caption="S01 · Gothic mansion / apparition · AFTER HOURS COLLECTION · 2026" data-title="The Visitor Upstairs / 旧宅来客"><img alt="The Visitor Upstairs / 旧宅来客" src="assets/images/curated/s01.webp"/><figcaption><span>S01 · THE VISITOR UPSTAIRS</span><small>Gothic mansion / apparition</small></figcaption></figure><figure class="artwork frame-museum horror-work" data-caption="S02 · Mirror horror · AFTER HOURS COLLECTION · 2026" data-title="The Other One in the Mirror / 镜中第二个我"><img alt="The Other One in the Mirror / 镜中第二个我" src="assets/images/curated/s02.webp"/><figcaption><span>S02 · THE OTHER ONE IN THE MIRROR</span><small>Mirror horror</small></figcaption></figure><figure class="artwork frame-museum horror-work" data-caption="S03 · Abandoned hospital · AFTER HOURS COLLECTION · 2026" data-title="Ward 13 / 空病房"><img alt="Ward 13 / 空病房" src="assets/images/curated/s03.webp"/><figcaption><span>S03 · WARD 13</span><small>Abandoned hospital</small></figcaption></figure><figure class="artwork frame-museum horror-work" data-caption="S04 · Abandoned carnival · AFTER HOURS COLLECTION · 2026" data-title="After the Carnival / 闭园之后"><img alt="After the Carnival / 闭园之后" src="assets/images/curated/s04.webp"/><figcaption><span>S04 · AFTER THE CARNIVAL</span><small>Abandoned carnival</small></figcaption></figure></div><a class="next-link room-next" data-en="DEEPER INTO AFTER HOURS →" data-zh="继续进入深夜展厅 →" href="#secretroom-b">DEEPER INTO AFTER HOURS →</a></section><section class="room room-secret is-hidden" data-stamp="S2 GOTHIC" id="secretroom-b"><div class="secret-curtain secret-curtain-left"></div><div class="secret-curtain secret-curtain-right"></div><div class="secretroom-mark">SECRET ROOM S2 · GOTHIC DEPTHS / 哥特深处</div><div class="secretroom-copy"><p class="kicker" data-en="ACCESS GRANTED." data-zh="隐藏入口已开启。">ACCESS GRANTED.</p><h2 data-en="GOTHIC DEPTHS." data-zh="哥特深处。">GOTHIC DEPTHS.</h2><p data-en="The second hidden room moves underground and upward at once: chapel, catacomb, staircase and cemetery." data-zh="第二间隐藏展厅同时向地下与高处延伸：黑色圣堂、地下墓穴、楼梯尽头与白花墓园。">The second hidden room moves underground and upward at once: chapel, catacomb, staircase and cemetery.</p></div><div class="secret-ritual" data-en="CURATOR FRAGMENT · The horror rooms keep Rayan recognizable while making the space around him unreliable." data-zh="策展人碎片 · 恐怖展厅始终保留 Rayan 的可辨识度，但让他周围的空间变得不可信。">CURATOR FRAGMENT · The horror rooms keep Rayan recognizable while making the space around him unreliable.</div><div class="secret-grid horror-grid"><figure class="artwork frame-museum horror-work" data-caption="S05 · Gothic chapel / forbidden archive · AFTER HOURS COLLECTION · 2026" data-title="The Hollow Chapel / 黑色圣堂"><img alt="The Hollow Chapel / 黑色圣堂" src="assets/images/curated/s05.webp"/><figcaption><span>S05 · THE HOLLOW CHAPEL</span><small>Gothic chapel / forbidden archive</small></figcaption></figure><figure class="artwork frame-museum horror-work" data-caption="S06 · Flooded catacombs / pursuit · AFTER HOURS COLLECTION · 2026" data-title="Echoes Below / 地下回声"><img alt="Echoes Below / 地下回声" src="assets/images/curated/s06.webp"/><figcaption><span>S06 · ECHOES BELOW</span><small>Flooded catacombs / pursuit</small></figcaption></figure><figure class="artwork frame-museum horror-work" data-caption="S07 · Haunted staircase · AFTER HOURS COLLECTION · 2026" data-title="At the Top of the Stairs / 楼梯尽头"><img alt="At the Top of the Stairs / 楼梯尽头" src="assets/images/curated/s07.webp"/><figcaption><span>S07 · AT THE TOP OF THE STAIRS</span><small>Haunted staircase</small></figcaption></figure><figure class="artwork frame-museum horror-work" data-caption="S08 · Moonlit cemetery · AFTER HOURS COLLECTION · 2026" data-title="The Garden of Quiet Faces / 白花墓园"><img alt="The Garden of Quiet Faces / 白花墓园" src="assets/images/curated/s08.webp"/><figcaption><span>S08 · THE GARDEN OF QUIET FACES</span><small>Moonlit cemetery</small></figcaption></figure></div><a class="next-link room-next" data-en="RETURN TO THE PUBLIC ROUTE →" data-zh="返回公开路线 →" href="#photospot">RETURN TO THE PUBLIC ROUTE →</a></section>
+<section class="room room-photo" data-stamp="PHOTO SPOT" id="photospot">
+<div class="photo-wall" id="photoWall">
+<div class="photo-tag">OFFICIAL PHOTO SPOT</div>
+<div class="photo-title">RAYAN</div>
+<div class="photo-subtitle">SAME KID / DIFFERENT WORLD</div>
+<div class="crown-mark">♔</div>
+<img alt="Rayan illustrated character" class="photo-character" src="assets/images/11_isolated-sketch.webp"/>
+<div class="photo-stamp">PRIVATE VIEW · 2026</div>
+</div>
+<div class="photo-controls">
+<h2 data-en="Make your check-in." data-zh="制作你的观展打卡。">Make your check-in.</h2>
+<p data-en="Use the official wall full-screen, or create a personalized museum check-in card below. Your photo stays in your browser while the card is generated. It is uploaded only if you choose POST TO VISITOR WALL." data-zh="可以全屏使用官方打卡墙，也可以制作个人观展卡片。照片生成卡片时只保留在浏览器中，只有点击“发布到访客墙”后才会上传。">Use the official wall full-screen, or create a personalized museum check-in card below. Your photo stays in your browser while the card is generated. It is uploaded only if you choose POST TO VISITOR WALL.</p>
+<button class="museum-button" data-en="FULLSCREEN PHOTO WALL" data-zh="全屏打卡墙" id="fullscreenPhoto">FULLSCREEN PHOTO WALL</button>
+<form class="checkin-form" id="checkinForm">
+<label>OPTIONAL PHOTO<input accept="image/*" id="checkinPhoto" type="file"/></label>
+<label>CHECK-IN LINE<input data-ph-en="I WAS HERE · OPENING NIGHT" data-ph-zh="我来过 · RAYAN 展览" id="checkinLine" maxlength="52" placeholder="I WAS HERE · OPENING NIGHT"/></label>
+<button class="museum-button" type="submit">MAKE CHECK-IN CARD</button>
+</form>
+<div class="checkin-preview is-hidden" id="checkinPreview">
+<img alt="Generated Rayan exhibition check-in card" id="checkinImage"/>
+<div class="checkin-actions"><button class="museum-button" id="downloadCheckin" type="button">SAVE CHECK-IN CARD</button><button class="museum-button ghost-dark is-hidden" id="postCheckin" type="button">POST TO VISITOR WALL</button></div>
+</div>
+</div>
+<div class="checkin-gallery is-hidden" id="checkinGallery"><div class="checkin-gallery-head"><span>VISITOR CHECK-IN WALL</span><small>OPENING NIGHT POSTS</small></div><div class="checkin-gallery-grid" id="checkinGalleryGrid"></div></div>
+<a class="next-link room-next" href="#guestbook">LEAVE YOUR MARK →</a>
+</section>
+<section class="room room-guestbook" data-stamp="GUESTBOOK" id="guestbook">
+<div class="guestbook-copy">
+<div class="room-label">VISITOR BOOK / 纪念签名墙</div>
+<h2 data-en="Leave something behind." data-zh="留下你的观展痕迹。">Leave something behind.</h2>
+<p data-en="Sign the wall with a name, a short note and your favorite work." data-zh="留下名字、一句短留言，以及你最喜欢的作品。" id="guestbookModeText">Sign the wall with a name, a short note and your favorite work.</p>
+<form class="guest-form" id="guestbookForm">
+<input data-ph-en="NAME / NICKNAME" data-ph-zh="名字 / 昵称" id="guestName" maxlength="24" placeholder="NAME / NICKNAME" required=""/>
+<select aria-label="Favorite artwork" id="guestFavorite">
+<option value="Window Daydream">Window Daydream / 窗边发呆</option>
+<option value="Café Alley">Café Alley / 咖啡巷</option>
+<option value="Studio Corner">Studio Corner / 工作室角落</option>
+<option value="Same Kid, Different World">Same Kid, Different World</option>
+<option value="Sitting by the Quiet Stream">Sitting by the Quiet Stream / 溪山独坐</option>
+<option value="Sound of Waves">Sound of Waves / 潮声</option>
+<option value="Boy in the Red Chair">Boy in the Red Chair / 红椅上的孩子</option>
+<option value="Framed by Lilies">Framed by Lilies / 百合框景</option>
+<option value="The Other One in the Mirror">The Other One in the Mirror / 镜中第二个我</option>
+<option value="After the Carnival">After the Carnival / 闭园之后</option>
+<option value="The Hollow Chapel">The Hollow Chapel / 黑色圣堂</option>
+<option value="The Garden of Quiet Faces">The Garden of Quiet Faces / 白花墓园</option>
+</select>
+<textarea data-ph-en="YOUR MESSAGE" data-ph-zh="写下你的留言" id="guestMessage" maxlength="140" placeholder="YOUR MESSAGE" required=""></textarea>
+<button data-en="SIGN THE WALL" data-zh="签名留言" type="submit">SIGN THE WALL</button>
+</form>
+<div class="guestbook-status" id="guestbookStatus">PRIVATE PREVIEW WALL</div>
+</div>
+<div aria-live="polite" class="signature-wall" id="signatureWall"></div>
+<a class="next-link room-next dark-link" href="#exit">MUSEUM EXIT →</a>
+</section>
+<section class="room room-exit" data-stamp="EXIT" id="exit">
+<div class="exit-card">
+<div class="eyebrow" data-en="THANK YOU FOR VISITING" data-zh="感谢参观">THANK YOU FOR VISITING</div>
+<h2>RAYAN</h2>
+<p>SAME KID, DIFFERENT WORLD</p>
+<div class="exit-rule"></div>
+<div class="exit-progress">
+<span>MUSEUM PASSPORT</span>
+<strong data-en="0 / 18 PUBLIC ROOMS VISITED" data-zh="已参观 0 / 18 个公开空间" id="exitStampCount">0 / 14 PUBLIC ROOMS VISITED</strong>
+</div>
+<div class="souvenir-ticket" id="souvenirTicket">
+<div>
+<strong id="souvenirGuest">RAYAN / PRIVATE VIEW</strong>
+<small>ONLINE EXHIBITION · 2026</small>
+</div>
+<div class="ticket-number" id="ticketNumber">№ —</div>
+</div>
+<div class="exit-actions">
+<button class="museum-button light" data-en="SAVE DIGITAL TICKET" data-zh="保存电子纪念票" id="downloadTicket">SAVE DIGITAL TICKET</button>
+<button class="museum-button ghost" data-en="REVISIT EXHIBITION" data-zh="重新参观" id="restartTour">REVISIT EXHIBITION</button>
+<a class="museum-button ghost inline-link" href="archive.html">VIEW ARCHIVE</a>
+<a class="museum-button ghost inline-link" href="opening-night.html">OPENING NIGHT</a>
+</div>
+<p class="fineprint">This exhibition exists because one character can have more than one world.</p>
+<div class="museum-credit">RAYAN ONLINE MUSEUM · EXHIBITION ID RYN/0922/2026 · PRIVATE EDITION</div>
+</div>
+</section>
+<div aria-label="Artwork detail" aria-modal="true" class="lightbox is-hidden" id="lightbox" role="dialog">
+<button aria-label="Close" class="lightbox-close" id="closeLightbox">×</button>
+<div class="lightbox-inner">
+<img alt="Artwork detail" id="lightboxImage"/>
+<div class="lightbox-info">
+<div class="lightbox-title" id="lightboxTitle"></div>
+<div class="lightbox-caption" id="lightboxCaption"></div>
+<div class="lightbox-meta" id="artworkViewCount"></div>
+</div>
+</div>
+</div>
+<div aria-label="Exhibition map" aria-modal="true" class="map-panel is-hidden" id="museumMap" role="dialog">
+<button aria-label="Close map" class="lightbox-close" id="closeMap">×</button>
+<div class="map-card">
+<div class="eyebrow" data-en="EXHIBITION MAP" data-zh="展览地图">EXHIBITION MAP</div>
+<h3>RAYAN / SAME KID, DIFFERENT WORLD</h3>
+<ol><li><a href="#origin">00 · Archive Studies / 早期档案</a></li><li><a href="#room01">01 · Quiet Days / 静日</a></li><li><a href="#room02">02 · Café &amp; Studio / 咖啡与工作室</a></li><li><a href="#room03">03 · Twilight &amp; Rest / 黄昏与休憩</a></li><li><a href="#room04">04 · Identity &amp; Mood / 人物与情绪</a></li><li><a href="#room05">05 · Ink &amp; Print / 水墨与版画</a></li><li><a href="#room06">06 · Mural &amp; Oil / 壁画与油画</a></li><li><a href="#room07">07 · Light &amp; Night / 光与夜色</a></li><li><a href="#room08">08 · Ornament &amp; Form / 装饰与形式</a></li><li><a href="#photo09a">09A · Portraits / 肖像</a></li><li><a href="#photo09b">09B · Form & Detail / 造型与细节</a></li><li><a href="#photo09c">09C · Light Studies / 光线研究</a></li><li><a href="#photo09d">09D · Environment / 环境肖像</a></li><li><a href="#special">10 · After Hours Gate / 闭馆后入口</a></li><li class="secret-map-entry is-hidden" id="secretMapEntry"><a href="#secretroom">S1 · Uncanny Rooms / 异常空间</a></li><li class="secret-map-entry is-hidden"><a href="#secretroom-b">S2 · Gothic Depths / 哥特深处</a></li><li><a href="#photospot">Photo Spot / 观展打卡</a></li><li><a href="#guestbook">Visitor Book / 纪念签名墙</a></li><li><a href="#exit">Museum Exit / 博物馆出口</a></li></ol>
+</div>
+</div>
+<div aria-label="Museum passport" aria-modal="true" class="passport-panel is-hidden" id="passportPanel" role="dialog">
+<button aria-label="Close passport" class="lightbox-close" id="closePassport">×</button>
+<div class="passport-card">
+<div class="eyebrow dark-eyebrow" data-en="MUSEUM PASSPORT" data-zh="博物馆护照">MUSEUM PASSPORT</div>
+<h3 id="passportGuest">INVITED GUEST</h3>
+<div class="passport-number" id="passportNumber">VISITOR № —</div>
+<div class="stamp-grid" id="stampGrid"></div>
+<p data-en="Rooms are stamped when you spend a moment inside them. Find the unlisted room for the rare stamp." data-zh="进入展厅后会自动盖章。找到两间隐藏展厅可以获得稀有印章。">Rooms are stamped when you spend a moment inside them. Find the unlisted room for the rare stamp.</p>
+</div>
+</div>
+</main>
+<script src="assets/shared-config.js"></script>
+<script src="assets/app.js"></script>
+<script>
+(()=>{const q=(s,r=document)=>r.querySelector(s),qa=(s,r=document)=>[...r.querySelectorAll(s)];let lang=localStorage.getItem('rayanLang')?JSON.parse(localStorage.getItem('rayanLang')):'en';lang=lang==='zh'?'zh':'en';const tr=(en,zh)=>lang==='zh'?zh:en;function apply(){document.documentElement.lang=lang==='zh'?'zh-CN':'en';qa('[data-en][data-zh]').forEach(el=>el.textContent=tr(el.dataset.en,el.dataset.zh));qa('[data-ph-en][data-ph-zh]').forEach(el=>el.placeholder=tr(el.dataset.phEn,el.dataset.phZh));const b=q('#languageToggle');if(b)b.textContent=lang==='zh'?'EN':'中文';}q('#languageToggle')?.addEventListener('click',()=>{lang=lang==='en'?'zh':'en';localStorage.setItem('rayanLang',JSON.stringify(lang));apply();});const publicStamps=[['FOYER','FOYER','序厅'],['00 ARCHIVE','00 ARCHIVE','00 早期档案'],['01 QUIET DAYS','01 QUIET DAYS','01 静日'],['02 CAFE STUDIO','02 CAFÉ & STUDIO','02 咖啡与工作室'],['03 TWILIGHT','03 TWILIGHT & REST','03 黄昏与休憩'],['04 IDENTITY','04 IDENTITY & MOOD','04 人物与情绪'],['05 INK PRINT','05 INK & PRINT','05 水墨与版画'],['06 WALL OIL','06 MURAL & OIL','06 壁画与油画'],['07 LIGHT NIGHT','07 LIGHT & NIGHT','07 光与夜色'],['08 ORNAMENT FORM','08 ORNAMENT & FORM','08 装饰与形式'],['09A PORTRAITS','09A PHOTO SALON · PORTRAITS','09A 精选摄影 · 肖像'],['09B FORM DETAIL','09B PHOTO SALON · FORM & DETAIL','09B 精选摄影 · 造型与细节'],['09C LIGHT STUDIES','09C PHOTO SALON · LIGHT STUDIES','09C 精选摄影 · 光线研究'],['09D ENVIRONMENT','09D PHOTO SALON · ENVIRONMENT','09D 精选摄影 · 环境肖像'],['10 AFTER HOURS','10 AFTER HOURS','10 闭馆后入口'],['PHOTO SPOT','CHECK-IN','观展打卡'],['GUESTBOOK','VISITOR BOOK','纪念签名墙'],['EXIT','EXIT','出口']];const secret=[['S1 UNCANNY','S1 UNCANNY ROOMS','S1 异常空间'],['S2 GOTHIC','S2 GOTHIC DEPTHS','S2 哥特深处']];function read(k){try{return JSON.parse(sessionStorage.getItem(k)||'null')}catch{return null}}function render(){const grid=q('#stampGrid');if(!grid)return;const stamps=new Set(read('rayanStamps')||[]);const unlocked=!!read('rayanSecretUnlocked');grid.innerHTML='';(unlocked?publicStamps.concat(secret):publicStamps).forEach(([key,en,zh])=>{const d=document.createElement('div');d.className='stamp '+(stamps.has(key)?'is-stamped':'');d.innerHTML='<span>'+tr(en,zh)+'</span><small>'+(stamps.has(key)?tr('VISITED','已参观'):tr('NOT YET','未参观'))+'</small>';grid.appendChild(d);});const pc=publicStamps.filter(([k])=>stamps.has(k)).length,sc=secret.filter(([k])=>stamps.has(k)).length;const ex=q('#exitStampCount');if(ex)ex.textContent=tr(pc+' / 18 PUBLIC ROOMS · '+sc+' SECRET','公开路线 '+pc+' / 18 · 隐藏展厅 '+sc+' / 2');}try{renderPassport=render}catch{}q('#secretForm')?.addEventListener('submit',()=>setTimeout(()=>{if(read('rayanSecretUnlocked')){q('#secretroom-b')?.classList.remove('is-hidden');qa('.secret-map-entry').forEach(x=>x.classList.remove('is-hidden'));render();}},50));if(read('rayanSecretUnlocked')){q('#secretroom-b')?.classList.remove('is-hidden');qa('.secret-map-entry').forEach(x=>x.classList.remove('is-hidden'));}apply();render();})();</script></body>
 </html>
