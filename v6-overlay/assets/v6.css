@@ -1,0 +1,10 @@
+/* RAYAN V6 — expanded museum route + bilingual interface */
+.language-toggle{position:fixed;right:18px;top:18px;z-index:1300;border:1px solid rgba(255,255,255,.45);background:rgba(5,7,8,.78);backdrop-filter:blur(12px);color:#fff;padding:9px 12px;font:850 10px/1 system-ui,sans-serif;letter-spacing:.08em;cursor:pointer;border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.2)}
+.language-toggle:hover{background:#fff;color:#111}
+.curator-note{max-width:860px;margin:-28px 0 46px;padding:14px 18px;border-left:2px solid #9bcf4a;background:rgba(0,0,0,.12);font:650 11px/1.75 ui-monospace,monospace;letter-spacing:.015em;color:inherit;opacity:.82}
+.wall-cream .curator-note{background:rgba(255,255,255,.24)}
+.curated-room-grid{max-width:1100px;margin:0 auto}.curated-room-grid .artwork:nth-child(even){margin-top:8vw}
+.horror-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:4vw}.horror-grid .artwork:nth-child(even){margin-top:7vw}
+.room-secret .secret-ritual{grid-column:1/-1}.room-secret .secret-grid{grid-column:1/-1}
+@media(max-width:1180px){.room-nav{gap:9px}.room-nav a{font-size:9px}.topbar{padding-left:20px;padding-right:80px}}
+@media(max-width:760px){.language-toggle{right:12px;top:14px}.curator-note{margin-top:-20px;margin-bottom:32px}.horror-grid{grid-template-columns:1fr}.curated-room-grid .artwork:nth-child(even),.horror-grid .artwork:nth-child(even){margin-top:0}}
