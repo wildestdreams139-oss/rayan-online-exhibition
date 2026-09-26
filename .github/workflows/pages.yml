@@ -37,8 +37,13 @@ jobs:
           if [ -d v6-overlay ]; then
             rsync -a v6-overlay/ _site/
           fi
-          # Overlay the latest curated HTML from the repository root\n          cp index.html _site/index.html\n          cp archive.html _site/archive.html\n          touch _site/.nojekyll
+          cp index.html _site/index.html
+          cp archive.html _site/archive.html
+          mkdir -p _site/assets
+          cp assets/app.js _site/assets/app.js
+          touch _site/.nojekyll
           test -f _site/index.html
+          test -f _site/assets/app.js
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
