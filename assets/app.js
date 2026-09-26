@@ -3,10 +3,10 @@
 
 const CONFIG = {
   // PREVIEW = always open for testing. Change to LIVE when your final date/time is ready.
-  mode: 'PREVIEW', // PREVIEW | LIVE
-  openAt: '2026-09-26T20:00:00+08:00',
-  closeAt: '2026-09-27T23:00:00+08:00',
-  displaySchedule: '26–27 SEP 2026 · PRIVATE VIEW',
+  mode: 'LIVE', // PREVIEW | LIVE
+  openAt: '2026-09-27T19:00:00+08:00',
+  closeAt: '2026-09-27T23:30:00+08:00',
+  displaySchedule: '27 SEP 2026 · 19:00–23:30 CST · PRIVATE VIEW',
   openingEditionMinutes: 90,
   secretWord: 'FROG',
   clueAfterUniqueArtworks: 4,
