@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0f1112" />
+  <title>RAYAN — Same Kid, Different World · Expanded Museum Edition</title>
+  <meta name="description" content="A private online exhibition of Rayan." />
+  <link rel="stylesheet" href="assets/styles.css" />\n  <link rel="stylesheet" href="assets/v6.css" />
+</head>
+<body>
+  <div id="grain"></div>
+  <div id="vipRibbon" class="vip-ribbon is-hidden">VIP / OPENING NIGHT</div>\n  <button id="languageToggle" class="language-toggle" type="button" aria-label="Switch language">中文</button>
+
+  <section id="gate" class="gate" aria-label="Exhibition entrance">
+    <div class="gate-bg"></div>
+    <div class="gate-shell">
+      <div class="gate-card">
+        <div class="gate-identity">
+          <img class="museum-mark" src="assets/rayan-mark.svg" alt="Rayan exhibition mark" />
+          <div class="eyebrow" data-en="PRIVATE ONLINE EXHIBITION · 2026" data-zh="私人线上展览 · 2026">PRIVATE ONLINE EXHIBITION · 2026</div>
+        </div>
+        <h1>RAYAN</h1>
+        <div class="subtitle">SAME KID, DIFFERENT WORLD</div>
+        <div class="ticket-line"></div>
+        <div class="gate-meta">
+          <span id="scheduleText">PRIVATE PREVIEW · OPEN NOW</span>
+          <span>ADMIT ONE</span>
+        </div>
+
+        <form id="accessForm" class="access-form" autocomplete="off">
+          <label for="accessCode" data-en="INVITATION / ACCESS CODE" data-zh="邀请函 / 入场密码">INVITATION / ACCESS CODE</label>
+          <div class="access-row">
+            <input id="accessCode" type="password" inputmode="text" placeholder="RAY-••••-•••" data-ph-en="RAY-••••-•••" data-ph-zh="输入入场密码" aria-label="Access code" />
+            <button type="submit" data-en="VALIDATE" data-zh="验证入场">VALIDATE</button>
+          </div>
+          <p id="gateMessage" class="gate-message" data-en="Present the code printed on your invitation." data-zh="请输入邀请函上的入场密码。">Present the code printed on your invitation.</p>
+        </form>
+
+        <div class="gate-actions">
+          <button id="viewArchive" class="text-button" type="button">VIEW EXHIBITION ARCHIVE</button>
+          <span class="serial">EXHIBITION № 0922 · CURATED FOR FRIENDS</span>
+        </div>
+      </div>
+
+      <aside class="door-notice">
+        <span class="door-number">01</span>
+        <p>PRIVATE VIEWING<br>INVITED GUESTS ONLY</p>
+        <small>Doors open together. Please keep your ticket until the museum exit.</small>
+      </aside>
+    </div>
+  </section>
+
+  <div id="openingSequence" class="opening-sequence is-hidden" aria-live="polite">
+    <div class="opening-center">
+      <div class="opening-kicker" id="openingGuest">TICKET VALIDATED</div>
+      <div class="opening-title">RAYAN</div>
+      <div class="opening-rule"></div>
+      <div class="opening-copy">THE DOORS ARE OPEN</div>
+    </div>
+  </div>
+
+  <main id="museum" class="museum is-hidden">
+    <header class="topbar">
+      <a class="brand" href="#foyer"><img src="assets/rayan-mark.svg" alt="" /> RAYAN / 2026</a>
+      <nav class="room-nav" aria-label="Museum rooms">
+<a href="#foyer" data-en="FOYER" data-zh="序厅">FOYER</a><a href="#room01">01</a><a href="#room02">02</a><a href="#room03">03</a><a href="#room04">04</a><a href="#room05">05</a><a href="#room06">06</a><a href="#room07">07</a><a href="#room08">08</a><a href="#special">09</a><a href="#photospot" data-en="PHOTO" data-zh="打卡">PHOTO</a><a href="#guestbook" data-en="BOOK" data-zh="留言">BOOK</a><a href="#exit" data-en="EXIT" data-zh="出口">EXIT</a>
+</nav>
+      <div class="top-actions">
+        <button id="passportButton" class="icon-button" aria-label="Open museum passport" data-en="PASS" data-zh="护照">PASS</button>
+        <button id="mapButton" class="icon-button" aria-label="Open exhibition map" data-en="MAP" data-zh="地图">MAP</button>
+      </div>
+    </header>
+
+    <section id="foyer" class="room room-foyer" data-stamp="FOYER">
+ <div class="gallery-code">GALLERY A · ENTRY LEVEL</div><div class="room-label">FOYER / 序厅</div>
+ <div class="foyer-copy"><p class="kicker">A PRIVATE VIEWING</p><h2>SAME KID.<br>DIFFERENT WORLD.</h2>
+ <p class="intro" data-en="Rayan moves through eight public galleries, an archive room, an after-hours threshold and two hidden horror rooms. Each room has its own pace and visual logic." data-zh="Rayan 将经过八间公开展厅、一间早期档案室、一个闭馆后入口，以及两间隐藏的恐怖展厅。每个房间都有自己的节奏与视觉规则。">Rayan moves through eight public galleries, an archive room, an after-hours threshold and two hidden horror rooms. Each room has its own pace and visual logic.</p>
+ <div class="visitor-strip"><span id="visitorName">GUEST —</span><span id="visitorNumber">VISITOR № —</span><span id="visitDate">—</span></div>
+ <div class="foyer-note" data-en="Take the route slowly. Open works for a closer view, switch languages at any time, and use MAP to jump between rooms. Your museum passport records each room you enter." data-zh="可以慢慢参观。点击作品查看细节，随时切换中英文，也可以用 MAP 快速跳转。博物馆护照会自动记录你进入过的展厅。">Take the route slowly. Open works for a closer view, switch languages at any time, and use MAP to jump between rooms. Your museum passport records each room you enter.</div>
+ <div class="foyer-wayfinding"><div class="wayfinding-title">PUBLIC ROUTE / 公开路线</div>
+ <a href="#origin"><b>00</b><span data-en="ARCHIVE STUDIES" data-zh="早期档案">ARCHIVE STUDIES</span><i>→</i></a>
+ <a href="#room01"><b>01–04</b><span data-en="EVERYDAY WORLDS" data-zh="日常世界">EVERYDAY WORLDS</span><i>→</i></a>
+ <a href="#room05"><b>05–08</b><span data-en="ACROSS ART HISTORY" data-zh="穿越画史">ACROSS ART HISTORY</span><i>→</i></a>
+ <a href="#special"><b>09</b><span data-en="AFTER HOURS GATE" data-zh="闭馆后入口">AFTER HOURS GATE</span><i>→</i></a>
+ <a href="#photospot"><b>P</b><span data-en="PHOTO / VISITOR BOOK" data-zh="打卡与留言">PHOTO / VISITOR BOOK</span><i>→</i></a></div>
+ <a href="#origin" class="next-link" data-en="BEGIN THE EXHIBITION ↓" data-zh="开始参观 ↓">BEGIN THE EXHIBITION ↓</a></div>
+ <figure class="hero-frame"><img src="assets/images/curated/r07.webp" alt="Rayan hand-painted exhibition illustration"><figcaption>MAIN EXHIBITION · CURATOR SELECTION / 主展 · 策展精选</figcaption></figure>
+ </section>
+
+    <section id="origin" class="room room-gallery wall-blue" data-stamp="00 ARCHIVE">
+ <div class="gallery-code">ROOM 00 · ARCHIVE STUDIES / 早期档案</div>
+ <div class="room-heading"><div><div class="room-label" data-en="ARCHIVE STUDIES" data-zh="早期档案">ARCHIVE STUDIES</div><h2 data-en="Early drawings, no source photograph." data-zh="从早期插画开始，不展示原始照片。">Early drawings, no source photograph.</h2></div><p data-en="Three early illustration studies remain as the visual archive. The physical source photograph is not part of the public hanging." data-zh="这里仅保留三件早期插画研究，作为视觉档案。实体来源照片不再列入公开展陈。">Three early illustration studies remain as the visual archive. The physical source photograph is not part of the public hanging.</p></div>
+ <div class="gallery-grid salon-grid archive-grid">
+  <figure class="artwork frame-light" data-title="First Transformation / 第一次转化" data-caption="A01 · Early visual archive · mixed-media illustration"><img src="assets/images/01_first-transformation.webp" alt="First Transformation / 第一次转化"><figcaption><span>A01 · FIRST TRANSFORMATION / 第一次转化</span><small>Archive study / 早期档案</small></figcaption></figure>
+  <figure class="artwork frame-light" data-title="Graffiti Canvas / 涂鸦画布" data-caption="A02 · Early street-art experiment"><img src="assets/images/04_graffiti-canvas.webp" alt="Graffiti Canvas / 涂鸦画布"><figcaption><span>A02 · GRAFFITI CANVAS / 涂鸦画布</span><small>Archive study / 早期档案</small></figcaption></figure>
+  <figure class="artwork frame-light" data-title="Café Alley — Early Study / 咖啡巷早期研究" data-caption="A03 · Early everyday-world study"><img src="assets/images/07_cafe-alley.webp" alt="Café Alley early study"><figcaption><span>A03 · CAFÉ ALLEY / 咖啡巷</span><small>Archive study / 早期档案</small></figcaption></figure>
+ </div>
+ <a href="#room01" class="next-link room-next" data-en="ENTER MAIN EXHIBITION →" data-zh="进入主展 →">ENTER MAIN EXHIBITION →</a>
+ </section>
+
+    <section id="room01" class="room room-gallery wall-cream" data-stamp="01 QUIET DAYS">
+ <div class="gallery-code gallery-code-dark">GALLERY 01 · QUIET DAYS / 静日</div>
+ <div class="room-heading dark-copy"><div><div class="room-label" data-en="QUIET DAYS" data-zh="静日">QUIET DAYS</div><h2 data-en="Small gestures, close light." data-zh="微小动作，近距离的光。">Small gestures, close light.</h2></div><p data-en="The main exhibition opens with ordinary pauses: a window, a stair, a companion nearby. Rayan is observed between moments rather than staged for spectacle." data-zh="主展从最普通的停顿开始：窗边、石阶、身旁的青蛙。Rayan 像是被捕捉在生活间隙中的人物，而不是为了奇观而摆拍。">The main exhibition opens with ordinary pauses: a window, a stair, a companion nearby. Rayan is observed between moments rather than staged for spectacle.</p></div>
+ <div class="curator-note" data-en="CURATOR NOTE · The main exhibition opens with ordinary pauses: a window, a stair, a companion nearby. Rayan is observed between moments rather than staged for spectacle." data-zh="策展人手记 · 主展从最普通的停顿开始：窗边、石阶、身旁的青蛙。Rayan 像是被捕捉在生活间隙中的人物，而不是为了奇观而摆拍。">CURATOR NOTE · The main exhibition opens with ordinary pauses: a window, a stair, a companion nearby. Rayan is observed between moments rather than staged for spectacle.</div>
+ <div class="gallery-grid two-up curated-room-grid"><figure class="artwork frame-black" data-title="Window Daydream / 窗边发呆" data-caption="R01 · WINDOW DAYDREAM / 窗边发呆 · Watercolor & gouache / 水彩与水粉 · 2026"><img src="assets/images/curated/r01.webp" alt="Window Daydream / 窗边发呆" /><figcaption><span>R01 · WINDOW DAYDREAM / 窗边发呆</span><small>Watercolor & gouache / 水彩与水粉</small></figcaption></figure><figure class="artwork frame-black" data-title="Stair Rest / 石阶停驻" data-caption="R02 · STAIR REST / 石阶停驻 · Hand-painted everyday scene / 手绘日常 · 2026"><img src="assets/images/curated/r02.webp" alt="Stair Rest / 石阶停驻" /><figcaption><span>R02 · STAIR REST / 石阶停驻</span><small>Hand-painted everyday scene / 手绘日常</small></figcaption></figure></div>
+ <a href="#room02" class="next-link room-next dark-link" data-en="ROOM 02 →" data-zh="进入展厅 02 →">ROOM 02 →</a>
+ </section>
+<section id="room02" class="room room-gallery wall-blue" data-stamp="02 CAFE STUDIO">
+ <div class="gallery-code">GALLERY 02 · CAFÉ & STUDIO / 咖啡与工作室</div>
+ <div class="room-heading"><div><div class="room-label" data-en="CAFÉ & STUDIO" data-zh="咖啡与工作室">CAFÉ & STUDIO</div><h2 data-en="Places become portraits." data-zh="空间也成为肖像。">Places become portraits.</h2></div><p data-en="The café and studio shift attention from pose to environment. Tables, paper, windows and worn surfaces show how the character occupies a day." data-zh="咖啡馆与工作室把重点从姿势转向空间。桌面、画纸、窗光与旧墙面共同说明这个角色如何度过一天。">The café and studio shift attention from pose to environment. Tables, paper, windows and worn surfaces show how the character occupies a day.</p></div>
+ <div class="curator-note" data-en="CURATOR NOTE · The café and studio shift attention from pose to environment. Tables, paper, windows and worn surfaces show how the character occupies a day." data-zh="策展人手记 · 咖啡馆与工作室把重点从姿势转向空间。桌面、画纸、窗光与旧墙面共同说明这个角色如何度过一天。">CURATOR NOTE · The café and studio shift attention from pose to environment. Tables, paper, windows and worn surfaces show how the character occupies a day.</div>
+ <div class="gallery-grid two-up curated-room-grid"><figure class="artwork frame-dark" data-title="Café Alley / 咖啡巷" data-caption="R03 · CAFÉ ALLEY / 咖啡巷 · Painterly café scene / 绘画感咖啡巷 · 2026"><img src="assets/images/curated/r03.webp" alt="Café Alley / 咖啡巷" /><figcaption><span>R03 · CAFÉ ALLEY / 咖啡巷</span><small>Painterly café scene / 绘画感咖啡巷</small></figcaption></figure><figure class="artwork frame-dark" data-title="Studio Corner / 工作室角落" data-caption="R04 · STUDIO CORNER / 工作室角落 · Studio narrative / 工作室叙事 · 2026"><img src="assets/images/curated/r04.webp" alt="Studio Corner / 工作室角落" /><figcaption><span>R04 · STUDIO CORNER / 工作室角落</span><small>Studio narrative / 工作室叙事</small></figcaption></figure></div>
+ <a href="#room03" class="next-link room-next" data-en="ROOM 03 →" data-zh="进入展厅 03 →">ROOM 03 →</a>
+ </section>
+<section id="room03" class="room room-gallery wall-charcoal" data-stamp="03 TWILIGHT">
+ <div class="gallery-code">GALLERY 03 · TWILIGHT & REST / 黄昏与休憩</div>
+ <div class="room-heading"><div><div class="room-label" data-en="TWILIGHT & REST" data-zh="黄昏与休憩">TWILIGHT & REST</div><h2 data-en="Movement, then stillness." data-zh="先移动，再停下来。">Movement, then stillness.</h2></div><p data-en="A walk at dusk and a pause on a bench form a diptych about movement and rest. The background stays quiet so body language carries the mood." data-zh="黄昏行走与长椅休息形成一组关于移动与停留的双联画。背景保持克制，让姿态本身承担情绪。">A walk at dusk and a pause on a bench form a diptych about movement and rest. The background stays quiet so body language carries the mood.</p></div>
+ <div class="curator-note" data-en="CURATOR NOTE · A walk at dusk and a pause on a bench form a diptych about movement and rest. The background stays quiet so body language carries the mood." data-zh="策展人手记 · 黄昏行走与长椅休息形成一组关于移动与停留的双联画。背景保持克制，让姿态本身承担情绪。">CURATOR NOTE · A walk at dusk and a pause on a bench form a diptych about movement and rest. The background stays quiet so body language carries the mood.</div>
+ <div class="gallery-grid two-up curated-room-grid"><figure class="artwork frame-dark" data-title="Evening Walk / 傍晚回望" data-caption="R05 · EVENING WALK / 傍晚回望 · Twilight narrative / 黄昏叙事 · 2026"><img src="assets/images/curated/r05.webp" alt="Evening Walk / 傍晚回望" /><figcaption><span>R05 · EVENING WALK / 傍晚回望</span><small>Twilight narrative / 黄昏叙事</small></figcaption></figure><figure class="artwork frame-dark" data-title="Bench Rest / 长椅小憩" data-caption="R06 · BENCH REST / 长椅小憩 · Park-life illustration / 公园日常 · 2026"><img src="assets/images/curated/r06.webp" alt="Bench Rest / 长椅小憩" /><figcaption><span>R06 · BENCH REST / 长椅小憩</span><small>Park-life illustration / 公园日常</small></figcaption></figure></div>
+ <a href="#room04" class="next-link room-next" data-en="ROOM 04 →" data-zh="进入展厅 04 →">ROOM 04 →</a>
+ </section>
+<section id="room04" class="room room-gallery wall-cream" data-stamp="04 IDENTITY">
+ <div class="gallery-code gallery-code-dark">GALLERY 04 · IDENTITY & MOOD / 人物与情绪</div>
+ <div class="room-heading dark-copy"><div><div class="room-label" data-en="IDENTITY & MOOD" data-zh="人物与情绪">IDENTITY & MOOD</div><h2 data-en="The character becomes a sign." data-zh="人物开始成为一种符号。">The character becomes a sign.</h2></div><p data-en="Attitude, headphones, frog iconography and hand-painted marks are reduced into a recognizable exhibition language." data-zh="情绪、耳机、青蛙符号与手绘痕迹，被压缩成一套容易辨认的展览语言。">Attitude, headphones, frog iconography and hand-painted marks are reduced into a recognizable exhibition language.</p></div>
+ <div class="curator-note" data-en="CURATOR NOTE · Attitude, headphones, frog iconography and hand-painted marks are reduced into a recognizable exhibition language." data-zh="策展人手记 · 情绪、耳机、青蛙符号与手绘痕迹，被压缩成一套容易辨认的展览语言。">CURATOR NOTE · Attitude, headphones, frog iconography and hand-painted marks are reduced into a recognizable exhibition language.</div>
+ <div class="gallery-grid two-up curated-room-grid"><figure class="artwork frame-black" data-title="Same Kid, Different World / 同一个孩子，不同世界" data-caption="R07 · SAME KID, DIFFERENT WORLD · Title work / 主视觉作品 · 2026"><img src="assets/images/curated/r07.webp" alt="Same Kid, Different World / 同一个孩子，不同世界" /><figcaption><span>R07 · SAME KID, DIFFERENT WORLD</span><small>Title work / 主视觉作品</small></figcaption></figure><figure class="artwork frame-black" data-title="Nothing Much Today / 无事发生的下午" data-caption="R08 · NOTHING MUCH TODAY / 无事发生的下午 · Music & everyday life / 音乐与日常 · 2026"><img src="assets/images/curated/r08.webp" alt="Nothing Much Today / 无事发生的下午" /><figcaption><span>R08 · NOTHING MUCH TODAY / 无事发生的下午</span><small>Music & everyday life / 音乐与日常</small></figcaption></figure></div>
+ <a href="#room05" class="next-link room-next dark-link" data-en="ROOM 05 →" data-zh="进入展厅 05 →">ROOM 05 →</a>
+ </section>
+<section id="room05" class="room room-gallery wall-blue" data-stamp="05 INK PRINT">
+ <div class="gallery-code">GALLERY 05 · INK & PRINT / 水墨与版画</div>
+ <div class="room-heading"><div><div class="room-label" data-en="INK & PRINT" data-zh="水墨与版画">INK & PRINT</div><h2 data-en="Across East Asian picture traditions." data-zh="进入东方绘画与版画语言。">Across East Asian picture traditions.</h2></div><p data-en="Ink-wash space and woodblock rhythm ask how much the world can change while the character remains unmistakably Rayan." data-zh="水墨的留白与木版画的节奏，追问世界可以改变到什么程度，而 Rayan 仍然一眼可认。">Ink-wash space and woodblock rhythm ask how much the world can change while the character remains unmistakably Rayan.</p></div>
+ <div class="curator-note" data-en="CURATOR NOTE · Ink-wash space and woodblock rhythm ask how much the world can change while the character remains unmistakably Rayan." data-zh="策展人手记 · 水墨的留白与木版画的节奏，追问世界可以改变到什么程度，而 Rayan 仍然一眼可认。">CURATOR NOTE · Ink-wash space and woodblock rhythm ask how much the world can change while the character remains unmistakably Rayan.</div>
+ <div class="gallery-grid two-up curated-room-grid"><figure class="artwork frame-dark" data-title="Sitting by the Quiet Stream / 溪山独坐" data-caption="R09 · SITTING BY THE QUIET STREAM / 溪山独坐 · Ink-wash landscape / 水墨山水 · 2026"><img src="assets/images/curated/r09.webp" alt="Sitting by the Quiet Stream / 溪山独坐" /><figcaption><span>R09 · SITTING BY THE QUIET STREAM / 溪山独坐</span><small>Ink-wash landscape / 水墨山水</small></figcaption></figure><figure class="artwork frame-dark" data-title="Sound of Waves / 潮声" data-caption="R10 · SOUND OF WAVES / 潮声 · Woodblock language / 木版画语言 · 2026"><img src="assets/images/curated/r10.webp" alt="Sound of Waves / 潮声" /><figcaption><span>R10 · SOUND OF WAVES / 潮声</span><small>Woodblock language / 木版画语言</small></figcaption></figure></div>
+ <a href="#room06" class="next-link room-next" data-en="ROOM 06 →" data-zh="进入展厅 06 →">ROOM 06 →</a>
+ </section>
+<section id="room06" class="room room-gallery wall-charcoal" data-stamp="06 WALL OIL">
+ <div class="gallery-code">GALLERY 06 · MURAL & OIL / 壁画与油画</div>
+ <div class="room-heading"><div><div class="room-label" data-en="MURAL & OIL" data-zh="壁画与油画">MURAL & OIL</div><h2 data-en="Surface, pigment, portrait." data-zh="表面、颜料与肖像。">Surface, pigment, portrait.</h2></div><p data-en="Mineral-pigment mural language meets the gravity of an old-master portrait. Familiar clothes stay, while the pictorial rules change completely." data-zh="矿物颜料般的壁画质感，与古典油画肖像的庄重相遇。服装仍然熟悉，但画面的规则已经完全改变。">Mineral-pigment mural language meets the gravity of an old-master portrait. Familiar clothes stay, while the pictorial rules change completely.</p></div>
+ <div class="curator-note" data-en="CURATOR NOTE · Mineral-pigment mural language meets the gravity of an old-master portrait. Familiar clothes stay, while the pictorial rules change completely." data-zh="策展人手记 · 矿物颜料般的壁画质感，与古典油画肖像的庄重相遇。服装仍然熟悉，但画面的规则已经完全改变。">CURATOR NOTE · Mineral-pigment mural language meets the gravity of an old-master portrait. Familiar clothes stay, while the pictorial rules change completely.</div>
+ <div class="gallery-grid two-up curated-room-grid"><figure class="artwork frame-dark" data-title="Echoes of the Wall / 云阙" data-caption="R11 · ECHOES OF THE WALL / 云阙 · Mural & mineral pigment / 壁画与矿物色 · 2026"><img src="assets/images/curated/r11.webp" alt="Echoes of the Wall / 云阙" /><figcaption><span>R11 · ECHOES OF THE WALL / 云阙</span><small>Mural & mineral pigment / 壁画与矿物色</small></figcaption></figure><figure class="artwork frame-dark" data-title="Boy in the Red Chair / 红椅上的孩子" data-caption="R12 · BOY IN THE RED CHAIR / 红椅上的孩子 · Old-master oil portrait / 古典油画肖像 · 2026"><img src="assets/images/curated/r12.webp" alt="Boy in the Red Chair / 红椅上的孩子" /><figcaption><span>R12 · BOY IN THE RED CHAIR / 红椅上的孩子</span><small>Old-master oil portrait / 古典油画肖像</small></figcaption></figure></div>
+ <a href="#room07" class="next-link room-next" data-en="ROOM 07 →" data-zh="进入展厅 07 →">ROOM 07 →</a>
+ </section>
+<section id="room07" class="room room-gallery wall-cream" data-stamp="07 LIGHT NIGHT">
+ <div class="gallery-code gallery-code-dark">GALLERY 07 · LIGHT & NIGHT / 光与夜色</div>
+ <div class="room-heading dark-copy"><div><div class="room-label" data-en="LIGHT & NIGHT" data-zh="光与夜色">LIGHT & NIGHT</div><h2 data-en="Daylight dissolves; night reflects." data-zh="日光散开，夜色开始反射。">Daylight dissolves; night reflects.</h2></div><p data-en="The garden is built from broken daylight; the river scene gathers that light back into reflection. Together they form the most atmospheric room in the historical route." data-zh="花园作品由破碎的日光组成；河岸夜景则把光重新收进水面倒影。它们构成画史路线里最强调气氛的一间展厅。">The garden is built from broken daylight; the river scene gathers that light back into reflection. Together they form the most atmospheric room in the historical route.</p></div>
+ <div class="curator-note" data-en="CURATOR NOTE · The garden is built from broken daylight; the river scene gathers that light back into reflection. Together they form the most atmospheric room in the historical route." data-zh="策展人手记 · 花园作品由破碎的日光组成；河岸夜景则把光重新收进水面倒影。它们构成画史路线里最强调气氛的一间展厅。">CURATOR NOTE · The garden is built from broken daylight; the river scene gathers that light back into reflection. Together they form the most atmospheric room in the historical route.</div>
+ <div class="gallery-grid two-up curated-room-grid"><figure class="artwork frame-black" data-title="Afternoon in the Garden / 花园午后" data-caption="R13 · AFTERNOON IN THE GARDEN / 花园午后 · Impressionist light / 印象派光线 · 2026"><img src="assets/images/curated/r13.webp" alt="Afternoon in the Garden / 花园午后" /><figcaption><span>R13 · AFTERNOON IN THE GARDEN / 花园午后</span><small>Impressionist light / 印象派光线</small></figcaption></figure><figure class="artwork frame-black" data-title="Moonlit Riverside / 月下河岸" data-caption="R14 · MOONLIT RIVERSIDE / 月下河岸 · Night painting study / 夜景绘画 · 2026"><img src="assets/images/curated/r14.webp" alt="Moonlit Riverside / 月下河岸" /><figcaption><span>R14 · MOONLIT RIVERSIDE / 月下河岸</span><small>Night painting study / 夜景绘画</small></figcaption></figure></div>
+ <a href="#room08" class="next-link room-next dark-link" data-en="ROOM 08 →" data-zh="进入展厅 08 →">ROOM 08 →</a>
+ </section>
+<section id="room08" class="room room-gallery wall-blue" data-stamp="08 ORNAMENT FORM">
+ <div class="gallery-code">GALLERY 08 · ORNAMENT & FORM / 装饰与形式</div>
+ <div class="room-heading"><div><div class="room-label" data-en="ORNAMENT & FORM" data-zh="装饰与形式">ORNAMENT & FORM</div><h2 data-en="From floral line to geometry." data-zh="从花饰线条走向几何。">From floral line to geometry.</h2></div><p data-en="The final art-history room moves toward design: floral framing becomes graphic structure, then gives way to geometry and controlled color fields." data-zh="最后一间画史展厅逐渐走向设计：花卉装饰先变成图形结构，再进一步简化为几何与受控制的色面。">The final art-history room moves toward design: floral framing becomes graphic structure, then gives way to geometry and controlled color fields.</p></div>
+ <div class="curator-note" data-en="CURATOR NOTE · The final art-history room moves toward design: floral framing becomes graphic structure, then gives way to geometry and controlled color fields." data-zh="策展人手记 · 最后一间画史展厅逐渐走向设计：花卉装饰先变成图形结构，再进一步简化为几何与受控制的色面。">CURATOR NOTE · The final art-history room moves toward design: floral framing becomes graphic structure, then gives way to geometry and controlled color fields.</div>
+ <div class="gallery-grid two-up curated-room-grid"><figure class="artwork frame-dark" data-title="Framed by Lilies / 百合框景" data-caption="R15 · FRAMED BY LILIES / 百合框景 · Art Nouveau ornament / 新艺术装饰 · 2026"><img src="assets/images/curated/r15.webp" alt="Framed by Lilies / 百合框景" /><figcaption><span>R15 · FRAMED BY LILIES / 百合框景</span><small>Art Nouveau ornament / 新艺术装饰</small></figcaption></figure><figure class="artwork frame-dark" data-title="Geometric Mood / 几何情绪" data-caption="R16 · GEOMETRIC MOOD / 几何情绪 · Modernist geometry / 现代主义几何 · 2026"><img src="assets/images/curated/r16.webp" alt="Geometric Mood / 几何情绪" /><figcaption><span>R16 · GEOMETRIC MOOD / 几何情绪</span><small>Modernist geometry / 现代主义几何</small></figcaption></figure></div>
+ <a href="#special" class="next-link room-next" data-en="AFTER HOURS GATE →" data-zh="进入闭馆后入口 →">AFTER HOURS GATE →</a>
+ </section>
+
+    
+
+    <section id="special" class="room room-special" data-stamp="09 AFTER HOURS">
+ <div class="gallery-code">ROOM 09 · AFTER HOURS GATE / 闭馆后入口</div><div class="special-vignette"></div>
+ <div class="room-heading special-heading"><div><div class="room-label" data-en="AFTER HOURS GATE" data-zh="闭馆后入口">AFTER HOURS GATE</div><h2 data-en="The museum changes after dark." data-zh="闭馆以后，博物馆开始改变。">The museum changes after dark.</h2></div><p data-en="The public exhibition pauses here. Two unlisted rooms contain a separate HORROR collection and are intentionally kept away from the main galleries." data-zh="公开路线在这里暂时结束。两间未列入地图的房间收藏了一组独立的 HORROR 作品，与主展保持距离。">The public exhibition pauses here. Two unlisted rooms contain a separate HORROR collection and are intentionally kept away from the main galleries.</p></div>
+ <div id="openingEdition" class="opening-edition"><span>SECRET ROOMS · 8 WORKS</span><p id="openingEditionText">No preview images are shown on the public route.</p></div>
+ <div class="secret-door-panel"><div><span class="room-label">UNLISTED ACCESS</span><h3 data-en="Two rooms are missing from the public map." data-zh="地图上还有两间没有标出的房间。">Two rooms are missing from the public map.</h3><p data-en="Enter the English word suggested by the recurring companion." data-zh="输入反复出现的伙伴所暗示的英文单词。">Enter the English word suggested by the recurring companion.</p></div><form id="secretForm" class="secret-form"><input id="secretCode" autocomplete="off" placeholder="SECRET WORD" aria-label="Secret room code"><button type="submit" data-en="TRY DOOR" data-zh="尝试开门">TRY DOOR</button><small id="secretMessage">The clue is inside the exhibition.</small></form></div>
+ <div class="secret-note">HORROR COLLECTION · LOW LIGHT · NO PREVIEW</div>
+ <a href="#photospot" class="next-link room-next" data-en="CONTINUE PUBLIC ROUTE →" data-zh="继续公开路线 →">CONTINUE PUBLIC ROUTE →</a>
+ </section>
+
+    <section id="secretroom" class="room room-secret is-hidden" data-stamp="S1 UNCANNY">
+  <div class="secret-curtain secret-curtain-left"></div><div class="secret-curtain secret-curtain-right"></div>
+  <div class="secretroom-mark"><span class="red-dot"></span> SECRET ROOM S1 · UNCANNY ROOMS / 异常空间</div>
+  <div class="secretroom-copy"><p class="kicker" data-en="ACCESS GRANTED." data-zh="隐藏入口已开启。">ACCESS GRANTED.</p><h2 data-en="UNCANNY ROOMS." data-zh="异常空间。">UNCANNY ROOMS.</h2><p data-en="Domestic rooms, mirrors, hospitals and abandoned attractions turn familiar places into traps for attention." data-zh="旧宅、镜子、病房与闭园游乐场，把熟悉空间变成持续牵引视线的陷阱。">Domestic rooms, mirrors, hospitals and abandoned attractions turn familiar places into traps for attention.</p></div>
+  <div class="secret-ritual" data-en="CURATOR FRAGMENT · The horror rooms keep Rayan recognizable while making the space around him unreliable." data-zh="策展人碎片 · 恐怖展厅始终保留 Rayan 的可辨识度，但让他周围的空间变得不可信。">CURATOR FRAGMENT · The horror rooms keep Rayan recognizable while making the space around him unreliable.</div>
+  <div class="secret-grid horror-grid"><figure class="artwork frame-museum horror-work" data-title="The Visitor Upstairs / 旧宅来客" data-caption="S01 · THE VISITOR UPSTAIRS / 旧宅来客 · Domestic horror / 旧宅恐怖 · 2026"><img src="assets/images/curated/s01.webp" alt="The Visitor Upstairs / 旧宅来客" /><figcaption><span>S01 · THE VISITOR UPSTAIRS / 旧宅来客</span><small>Domestic horror / 旧宅恐怖</small></figcaption></figure><figure class="artwork frame-museum horror-work" data-title="The Other One in the Mirror / 镜中第二个我" data-caption="S02 · THE OTHER ONE IN THE MIRROR / 镜中第二个我 · Mirror horror / 镜像恐怖 · 2026"><img src="assets/images/curated/s02.webp" alt="The Other One in the Mirror / 镜中第二个我" /><figcaption><span>S02 · THE OTHER ONE IN THE MIRROR / 镜中第二个我</span><small>Mirror horror / 镜像恐怖</small></figcaption></figure><figure class="artwork frame-museum horror-work" data-title="Ward 13 / 空病房" data-caption="S03 · WARD 13 / 空病房 · Abandoned hospital / 废弃病房 · 2026"><img src="assets/images/curated/s03.webp" alt="Ward 13 / 空病房" /><figcaption><span>S03 · WARD 13 / 空病房</span><small>Abandoned hospital / 废弃病房</small></figcaption></figure><figure class="artwork frame-museum horror-work" data-title="After the Carnival / 闭园之后" data-caption="S04 · AFTER THE CARNIVAL / 闭园之后 · Abandoned carnival / 废弃游乐场 · 2026"><img src="assets/images/curated/s04.webp" alt="After the Carnival / 闭园之后" /><figcaption><span>S04 · AFTER THE CARNIVAL / 闭园之后</span><small>Abandoned carnival / 废弃游乐场</small></figcaption></figure></div>
+  <a href="#secretroom-b" class="next-link room-next" data-en="DEEPER INTO AFTER HOURS →" data-zh="继续进入深夜展厅 →">DEEPER INTO AFTER HOURS →</a>
+ </section>\n<section id="secretroom-b" class="room room-secret is-hidden" data-stamp="S2 GOTHIC">
+  <div class="secret-curtain secret-curtain-left"></div><div class="secret-curtain secret-curtain-right"></div>
+  <div class="secretroom-mark"><span class="red-dot"></span> SECRET ROOM S2 · GOTHIC DEPTHS / 哥特深处</div>
+  <div class="secretroom-copy"><p class="kicker" data-en="ACCESS GRANTED." data-zh="隐藏入口已开启。">ACCESS GRANTED.</p><h2 data-en="GOTHIC DEPTHS." data-zh="哥特深处。">GOTHIC DEPTHS.</h2><p data-en="The second hidden room moves underground and upward at once: chapel, catacomb, staircase and cemetery." data-zh="第二间隐藏展厅同时向地下与高处延伸：黑色圣堂、地下墓穴、楼梯尽头与白花墓园。">The second hidden room moves underground and upward at once: chapel, catacomb, staircase and cemetery.</p></div>
+  <div class="secret-ritual" data-en="CURATOR FRAGMENT · The horror rooms keep Rayan recognizable while making the space around him unreliable." data-zh="策展人碎片 · 恐怖展厅始终保留 Rayan 的可辨识度，但让他周围的空间变得不可信。">CURATOR FRAGMENT · The horror rooms keep Rayan recognizable while making the space around him unreliable.</div>
+  <div class="secret-grid horror-grid"><figure class="artwork frame-museum horror-work" data-title="The Hollow Chapel / 黑色圣堂" data-caption="S05 · THE HOLLOW CHAPEL / 黑色圣堂 · Gothic chapel / 哥特圣堂 · 2026"><img src="assets/images/curated/s05.webp" alt="The Hollow Chapel / 黑色圣堂" /><figcaption><span>S05 · THE HOLLOW CHAPEL / 黑色圣堂</span><small>Gothic chapel / 哥特圣堂</small></figcaption></figure><figure class="artwork frame-museum horror-work" data-title="Echoes Below / 地下回声" data-caption="S06 · ECHOES BELOW / 地下回声 · Flooded catacombs / 地下墓穴 · 2026"><img src="assets/images/curated/s06.webp" alt="Echoes Below / 地下回声" /><figcaption><span>S06 · ECHOES BELOW / 地下回声</span><small>Flooded catacombs / 地下墓穴</small></figcaption></figure><figure class="artwork frame-museum horror-work" data-title="At the Top of the Stairs / 楼梯尽头" data-caption="S07 · AT THE TOP OF THE STAIRS / 楼梯尽头 · Haunted staircase / 闹鬼楼梯 · 2026"><img src="assets/images/curated/s07.webp" alt="At the Top of the Stairs / 楼梯尽头" /><figcaption><span>S07 · AT THE TOP OF THE STAIRS / 楼梯尽头</span><small>Haunted staircase / 闹鬼楼梯</small></figcaption></figure><figure class="artwork frame-museum horror-work" data-title="The Garden of Quiet Faces / 白花墓园" data-caption="S08 · THE GARDEN OF QUIET FACES / 白花墓园 · Moonlit cemetery / 月光墓园 · 2026"><img src="assets/images/curated/s08.webp" alt="The Garden of Quiet Faces / 白花墓园" /><figcaption><span>S08 · THE GARDEN OF QUIET FACES / 白花墓园</span><small>Moonlit cemetery / 月光墓园</small></figcaption></figure></div>
+  <a href="#photospot" class="next-link room-next" data-en="RETURN TO THE PUBLIC ROUTE →" data-zh="返回公开路线 →">RETURN TO THE PUBLIC ROUTE →</a>
+ </section>
+
+    <section id="photospot" class="room room-photo" data-stamp="PHOTO SPOT">
+      <div class="photo-wall" id="photoWall">
+        <div class="photo-tag">OFFICIAL PHOTO SPOT</div>
+        <div class="photo-title">RAYAN</div>
+        <div class="photo-subtitle">SAME KID / DIFFERENT WORLD</div>
+        <div class="crown-mark">♔</div>
+        <img class="photo-character" src="assets/images/11_isolated-sketch.webp" alt="Rayan illustrated character" />
+        <div class="photo-stamp">PRIVATE VIEW · 2026</div>
+      </div>
+      <div class="photo-controls">
+        <h2 data-en="Make your check-in." data-zh="制作你的观展打卡。">Make your check-in.</h2>
+        <p>Use the official wall full-screen, or create a personalized museum check-in card below. Your photo stays inside your browser while the card is generated. It is uploaded only if you choose POST TO VISITOR WALL.</p>
+        <button id="fullscreenPhoto" class="museum-button">FULLSCREEN PHOTO WALL</button>
+        <form id="checkinForm" class="checkin-form">
+          <label>OPTIONAL PHOTO<input id="checkinPhoto" type="file" accept="image/*" /></label>
+          <label>CHECK-IN LINE<input id="checkinLine" maxlength="52" placeholder="I WAS HERE · OPENING NIGHT" /></label>
+          <button type="submit" class="museum-button">MAKE CHECK-IN CARD</button>
+        </form>
+        <div id="checkinPreview" class="checkin-preview is-hidden">
+          <img id="checkinImage" alt="Generated Rayan exhibition check-in card" />
+          <div class="checkin-actions"><button id="downloadCheckin" class="museum-button" type="button">SAVE CHECK-IN CARD</button><button id="postCheckin" class="museum-button ghost-dark is-hidden" type="button">POST TO VISITOR WALL</button></div>
+        </div>
+      </div>
+      <div id="checkinGallery" class="checkin-gallery is-hidden"><div class="checkin-gallery-head"><span>VISITOR CHECK-IN WALL</span><small>OPENING NIGHT POSTS</small></div><div id="checkinGalleryGrid" class="checkin-gallery-grid"></div></div>
+      <a href="#guestbook" class="next-link room-next">LEAVE YOUR MARK →</a>
+    </section>
+
+    <section id="guestbook" class="room room-guestbook" data-stamp="GUESTBOOK">
+      <div class="guestbook-copy">
+        <div class="room-label">VISITOR BOOK / 纪念签名墙</div>
+        <h2 data-en="Leave something behind." data-zh="留下你的观展痕迹。">Leave something behind.</h2>
+        <p id="guestbookModeText">Sign the wall with a name, a short note and your favorite work.</p>
+        <form id="guestbookForm" class="guest-form">
+          <input id="guestName" maxlength="24" placeholder="NAME / NICKNAME" data-ph-en="NAME / NICKNAME" data-ph-zh="名字 / 昵称" required />
+          <select id="guestFavorite" aria-label="Favorite artwork">
+<option value="Window Daydream">Window Daydream / 窗边发呆</option><option value="Café Alley">Café Alley / 咖啡巷</option><option value="Studio Corner">Studio Corner / 工作室角落</option><option value="Same Kid, Different World">Same Kid, Different World / 同一个孩子，不同世界</option><option value="Sitting by the Quiet Stream">Sitting by the Quiet Stream / 溪山独坐</option><option value="Sound of Waves">Sound of Waves / 潮声</option><option value="Boy in the Red Chair">Boy in the Red Chair / 红椅上的孩子</option><option value="Framed by Lilies">Framed by Lilies / 百合框景</option><option value="The Other One in the Mirror">The Other One in the Mirror / 镜中第二个我</option><option value="After the Carnival">After the Carnival / 闭园之后</option><option value="The Hollow Chapel">The Hollow Chapel / 黑色圣堂</option><option value="The Garden of Quiet Faces">The Garden of Quiet Faces / 白花墓园</option>
+</select>
+          <textarea id="guestMessage" maxlength="140" placeholder="YOUR MESSAGE" data-ph-en="YOUR MESSAGE" data-ph-zh="写下你的留言" required></textarea>
+          <button type="submit">SIGN THE WALL</button>
+        </form>
+        <div class="guestbook-status" id="guestbookStatus">PRIVATE PREVIEW WALL</div>
+      </div>
+      <div id="signatureWall" class="signature-wall" aria-live="polite"></div>
+      <a href="#exit" class="next-link room-next dark-link">MUSEUM EXIT →</a>
+    </section>
+
+    <section id="exit" class="room room-exit" data-stamp="EXIT">
+      <div class="exit-card">
+        <div class="eyebrow">THANK YOU FOR VISITING</div>
+        <h2>RAYAN</h2>
+        <p>SAME KID, DIFFERENT WORLD</p>
+        <div class="exit-rule"></div>
+        <div class="exit-progress">
+          <span>MUSEUM PASSPORT</span>
+          <strong id="exitStampCount">0 / 14 PUBLIC ROOMS VISITED</strong>
+        </div>
+        <div class="souvenir-ticket" id="souvenirTicket">
+          <div>
+            <strong id="souvenirGuest">RAYAN / PRIVATE VIEW</strong>
+            <small>ONLINE EXHIBITION · 2026</small>
+          </div>
+          <div class="ticket-number" id="ticketNumber">№ —</div>
+        </div>
+        <div class="exit-actions">
+          <button id="downloadTicket" class="museum-button light">SAVE DIGITAL TICKET</button>
+          <button id="restartTour" class="museum-button ghost">REVISIT EXHIBITION</button>
+          <a class="museum-button ghost inline-link" href="archive.html">VIEW ARCHIVE</a>
+          <a class="museum-button ghost inline-link" href="opening-night.html">OPENING NIGHT</a>
+        </div>
+        <p class="fineprint">This exhibition exists because one character can have more than one world.</p>
+        <div class="museum-credit">RAYAN ONLINE MUSEUM · EXHIBITION ID RYN/0922/2026 · PRIVATE EDITION</div>
+      </div>
+    </section>
+
+    <div id="lightbox" class="lightbox is-hidden" role="dialog" aria-modal="true" aria-label="Artwork detail">
+      <button id="closeLightbox" class="lightbox-close" aria-label="Close">×</button>
+      <div class="lightbox-inner">
+        <img id="lightboxImage" alt="Artwork detail" />
+        <div class="lightbox-info">
+          <div id="lightboxTitle" class="lightbox-title"></div>
+          <div id="lightboxCaption" class="lightbox-caption"></div>
+          <div id="artworkViewCount" class="lightbox-meta"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="museumMap" class="map-panel is-hidden" role="dialog" aria-modal="true" aria-label="Exhibition map">
+      <button id="closeMap" class="lightbox-close" aria-label="Close map">×</button>
+      <div class="map-card">
+        <div class="eyebrow">EXHIBITION MAP</div>
+        <h3>RAYAN / SAME KID, DIFFERENT WORLD</h3><ol>
+<li><a href="#origin">00 · Archive Studies / 早期档案</a></li><li><a href="#room01">01 · Quiet Days / 静日</a></li><li><a href="#room02">02 · Café & Studio / 咖啡与工作室</a></li><li><a href="#room03">03 · Twilight & Rest / 黄昏与休憩</a></li><li><a href="#room04">04 · Identity & Mood / 人物与情绪</a></li><li><a href="#room05">05 · Ink & Print / 水墨与版画</a></li><li><a href="#room06">06 · Mural & Oil / 壁画与油画</a></li><li><a href="#room07">07 · Light & Night / 光与夜色</a></li><li><a href="#room08">08 · Ornament & Form / 装饰与形式</a></li><li><a href="#special">09 · After Hours Gate / 闭馆后入口</a></li><li id="secretMapEntry" class="secret-map-entry is-hidden"><a href="#secretroom">S1 · Uncanny Rooms / 异常空间</a></li><li class="secret-map-entry is-hidden"><a href="#secretroom-b">S2 · Gothic Depths / 哥特深处</a></li><li><a href="#photospot">Photo Spot / 观展打卡</a></li><li><a href="#guestbook">Visitor Book / 纪念签名墙</a></li><li><a href="#exit">Museum Exit / 博物馆出口</a></li>
+</ol>
+      </div>
+    </div>
+
+    <div id="passportPanel" class="passport-panel is-hidden" role="dialog" aria-modal="true" aria-label="Museum passport">
+      <button id="closePassport" class="lightbox-close" aria-label="Close passport">×</button>
+      <div class="passport-card">
+        <div class="eyebrow dark-eyebrow">MUSEUM PASSPORT</div>
+        <h3 id="passportGuest">INVITED GUEST</h3>
+        <div class="passport-number" id="passportNumber">VISITOR № —</div>
+        <div id="stampGrid" class="stamp-grid"></div>
+        <p>Rooms are stamped when you spend a moment inside them. Find the unlisted room for the rare stamp.</p>
+      </div>
+    </div>
+  </main>
+
+  <script src="assets/shared-config.js"></script>
+  <script src="assets/app.js"></script>\n  <script src="assets/v6.js"></script>
+</body>
+</html>
