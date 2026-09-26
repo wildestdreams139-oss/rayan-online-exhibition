@@ -34,7 +34,7 @@ jobs:
           else
             rsync -a --exclude='.git' --exclude='.github' --exclude='_site' ./ _site/
           fi
-          touch _site/.nojekyll
+          if [ -d v6-overlay ]; then\n            rsync -a v6-overlay/ _site/\n          fi\n          touch _site/.nojekyll
           test -f _site/index.html
 
       - name: Configure Pages
