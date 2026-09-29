@@ -14,7 +14,13 @@
     ['PRIVATE PREVIEW WALL','私人预展留言墙'],
     ['Present the code printed on your invitation.','请输入邀请函上的入场密码。'],
     ['The door stays closed.','门没有打开。'],
-    ['ACCESS GRANTED · STARLIGHT CHAMBER','已开启 · 明星秘密房间']
+    ['ACCESS GRANTED · STARLIGHT CHAMBER','已开启 · 明星秘密房间'],
+    ['THE EXHIBITION IS NOW CLOSED · ARCHIVE AVAILABLE','本次展览已闭馆 · 可查看展览档案'],
+    ['Invitation not recognized. Please check the code on your ticket.','未识别到这张邀请函，请检查票面上的入场密码。'],
+    ['Your ticket is valid. The live exhibition has closed; the archive remains available.','入场密码有效。本次线上展览已闭馆，展览档案仍可查看。'],
+    ['This wall is live: invited visitors can see one another’s notes.','这是实时共享留言墙：受邀访客可以看到彼此留下的文字。'],
+    ['This visitor book is using local fallback mode. Notes saved here are visible only on this device.','留言墙当前使用本地备用模式；保存在这里的内容只会显示在这台设备上。'],
+    ['SHARED WALL WRITE FAILED · SAVED LOCALLY','共享留言写入失败 · 已保存在本机']
   ]);
 
   const publicStamps=[
@@ -78,10 +84,45 @@
     renderPassportV7();
   }
   q('#secretForm')?.addEventListener('submit',()=>setTimeout(revealSecretState,40));
-  q('#horrorDoorButton')?.addEventListener('click',()=>setTimeout(revealSecretState,40));
+  q('#horrorDoorButton')?.addEventListener('click',()=>{
+    try{sessionStorage.setItem('rayanHorrorUnlocked',JSON.stringify(true));}catch(_){}
+    revealSecretState();
+    setTimeout(()=>q('#secretroom')?.scrollIntoView({behavior:'smooth'}),80);
+  });
   revealSecretState();
 
-  const observer=new MutationObserver(()=>{if(lang==='zh')qa('#scheduleText,#guestbookStatus,#gateMessage,#secretMessage').forEach(el=>{const zh=dynamicPairs.get(el.textContent.trim());if(zh)el.textContent=zh;});});
-  qa('#scheduleText,#guestbookStatus,#gateMessage,#secretMessage').forEach(el=>observer.observe(el,{childList:true,subtree:true}));
+  function translateDynamic(el){
+    if(lang!=='zh' || !el) return;
+    const raw=el.textContent.trim();
+    const direct=dynamicPairs.get(raw);
+    if(direct){el.textContent=direct;return;}
+    if(raw.startsWith('Ticket validated · ')) el.textContent='验票成功 · '+raw.slice('Ticket validated · '.length);
+    else if(raw.startsWith('Your ticket is valid, but the doors are not open yet.')){
+      const countdown=raw.includes('DOORS OPEN IN')?raw.slice(raw.indexOf('DOORS OPEN IN')):'';
+      el.textContent='入场密码有效，但展览尚未开放。'+(countdown?(' '+countdown):'');
+    }
+  }
+
+  function installImageFallbacks(){
+    qa('.artwork img,.starlight-key img,.hero-frame img').forEach(img=>{
+      if(img.dataset.fallbackReady) return;
+      img.dataset.fallbackReady='1';
+      const fail=()=>{
+        const fig=img.closest('figure'); if(!fig || fig.classList.contains('asset-missing')) return;
+        fig.classList.add('asset-missing');
+        const box=document.createElement('div'); box.className='asset-fallback';
+        box.textContent='ARTWORK IMAGE TEMPORARILY UNAVAILABLE / 作品图片暂时无法显示';
+        img.insertAdjacentElement('afterend',box);
+      };
+      img.addEventListener('error',fail,{once:true});
+      if(img.complete && img.naturalWidth===0) fail();
+    });
+  }
+
+  const dynamicEls='#scheduleText,#guestbookStatus,#guestbookModeText,#gateMessage,#secretMessage';
+  const observer=new MutationObserver(()=>qa(dynamicEls).forEach(translateDynamic));
+  qa(dynamicEls).forEach(el=>observer.observe(el,{childList:true,subtree:true}));
+  installImageFallbacks();
   applyLanguage();
+  qa(dynamicEls).forEach(translateDynamic);
 })();
