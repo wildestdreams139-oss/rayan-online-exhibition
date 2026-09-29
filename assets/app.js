@@ -1,4 +1,4 @@
-/* RAYAN ONLINE EXHIBITION v3 — Museum Edition
+/* RAYAN ONLINE EXHIBITION V7.1 — Museum Edition
    Everything essential works as a static site. Shared guestbook is optional via assets/shared-config.js. */
 
 const CONFIG = {
@@ -326,8 +326,8 @@ $('#downloadCheckin')?.addEventListener('click',()=>{
 
 // GUESTBOOK — local preview + optional Supabase shared wall
 const starter=[
-  {name:'CURATOR',favorite:'Private Selection I',message:'Welcome to the first private viewing of RAYAN.',created_at:'OPENING NOTE'},
-  {name:'VISITOR 001',favorite:'Night City',message:'Same kid, different world.',created_at:'FIRST ENTRY'}
+  {name:'CURATOR',favorite:'Same Kid, Different World',message:'Welcome to the private viewing of RAYAN.',created_at:'OPENING NOTE'},
+  {name:'VISITOR 001',favorite:'Sound of Waves',message:'Same kid, different world.',created_at:'FIRST ENTRY'}
 ];
 const shared=window.RAYAN_SHARED||{enabled:false};
 function localEntries(){ return storage.get('rayanGuestbook',starter); }
@@ -366,7 +366,7 @@ async function loadGuestbook(){
     }
   }
   renderGuestbook(localEntries());
-  $('#guestbookModeText').textContent='Preview mode: signatures are stored on this device. Connect the included free shared-wall option before opening night.';
+  $('#guestbookModeText').textContent='This visitor book is using local fallback mode. Notes saved here are visible only on this device.';
 }
 loadGuestbook();
 $('#guestbookForm')?.addEventListener('submit',async e=>{
