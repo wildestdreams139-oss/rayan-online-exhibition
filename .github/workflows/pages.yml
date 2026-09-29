@@ -39,11 +39,32 @@ jobs:
           fi
           cp index.html _site/index.html
           cp archive.html _site/archive.html
+          cp invitation.html _site/invitation.html
+          cp opening-night.html _site/opening-night.html
+          cp curator_ticket_studio.html _site/curator_ticket_studio.html
           mkdir -p _site/assets
-          cp assets/app.js _site/assets/app.js
+          rsync -a assets/ _site/assets/
           touch _site/.nojekyll
           test -f _site/index.html
           test -f _site/assets/app.js
+          test -f _site/assets/v6.js
+          test -f _site/assets/photo-loader.js
+
+          echo "=== V7.1 asset audit ==="
+          missing=0
+          for f in \
+            assets/photo-data-a.js assets/photo-data-b.js assets/photo-data-c.js assets/photo-data-d.js assets/photo-loader.js \
+            assets/images/curated/r01.webp assets/images/curated/r16.webp \
+            assets/images/curated/s01.webp assets/images/curated/s08.webp \
+            assets/images/curated/star-kv.webp assets/images/curated/star01.webp assets/images/curated/star08.webp; do
+            if [ ! -f "_site/$f" ]; then
+              echo "::warning::Missing deployed asset: $f"
+              missing=$((missing+1))
+            else
+              echo "OK $f"
+            fi
+          done
+          echo "V7.1 audit missing count: $missing"
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
