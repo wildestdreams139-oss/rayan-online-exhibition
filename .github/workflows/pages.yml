@@ -52,6 +52,8 @@ jobs:
             unzip -q -o /tmp/stars-v71.zip -d _site/assets/images/curated
           fi
 
+          python scripts/polish-v71.py _site
+
           touch _site/.nojekyll
           test -f _site/index.html
           test -f _site/assets/app.js
