@@ -44,6 +44,14 @@ jobs:
           cp curator_ticket_studio.html _site/curator_ticket_studio.html
           mkdir -p _site/assets
           rsync -a assets/ _site/assets/
+
+          # Restore the V7.1 Starlight Chamber artwork payload.
+          if [ -f .site-assets/stars-v71.zip.b64 ]; then
+            mkdir -p _site/assets/images/curated
+            base64 -d .site-assets/stars-v71.zip.b64 > /tmp/stars-v71.zip
+            unzip -q -o /tmp/stars-v71.zip -d _site/assets/images/curated
+          fi
+
           touch _site/.nojekyll
           test -f _site/index.html
           test -f _site/assets/app.js
@@ -56,7 +64,9 @@ jobs:
             assets/photo-data-a.js assets/photo-data-b.js assets/photo-data-c.js assets/photo-data-d.js assets/photo-loader.js \
             assets/images/curated/r01.webp assets/images/curated/r16.webp \
             assets/images/curated/s01.webp assets/images/curated/s08.webp \
-            assets/images/curated/star-kv.webp assets/images/curated/star01.webp assets/images/curated/star08.webp; do
+            assets/images/curated/star-kv.webp assets/images/curated/star01.webp assets/images/curated/star02.webp \
+            assets/images/curated/star03.webp assets/images/curated/star04.webp assets/images/curated/star05.webp \
+            assets/images/curated/star06.webp assets/images/curated/star07.webp assets/images/curated/star08.webp; do
             if [ ! -f "_site/$f" ]; then
               echo "::warning::Missing deployed asset: $f"
               missing=$((missing+1))
