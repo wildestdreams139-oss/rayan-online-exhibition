@@ -12,25 +12,59 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Inspect deploy payload and V7.1 references
+      - name: Inspect deploy payload and every referenced asset
         shell: bash
         run: |
+          set -euo pipefail
           rm -rf _audit
           mkdir -p _audit
           unzip -q -o RAYAN_site_payload.zip -d _audit
           if [ -d v6-overlay ]; then rsync -a v6-overlay/ _audit/; fi
           mkdir -p _audit/assets
           rsync -a assets/ _audit/assets/
-          echo "=== required assets ==="
+
+          if [ -f .site-assets/stars-v71.zip.b64 ]; then
+            mkdir -p _audit/assets/images/curated
+            base64 -d .site-assets/stars-v71.zip.b64 > /tmp/stars-v71.zip
+            unzip -q -o /tmp/stars-v71.zip -d _audit/assets/images/curated
+          fi
+
+          cp index.html _audit/index.html
+          cp archive.html _audit/archive.html
+          cp invitation.html _audit/invitation.html
+          cp opening-night.html _audit/opening-night.html
+
+          echo "=== every local asset referenced by HTML ==="
           missing=0
-          for f in             assets/images/curated/r01.webp assets/images/curated/r02.webp assets/images/curated/r16.webp             assets/images/curated/s01.webp assets/images/curated/s08.webp             assets/images/curated/star-kv.webp assets/images/curated/star01.webp assets/images/curated/star08.webp             assets/photo-data-a.js assets/photo-data-b.js assets/photo-data-c.js assets/photo-data-d.js assets/photo-loader.js; do
+          for page in _audit/index.html _audit/archive.html _audit/invitation.html _audit/opening-night.html; do
+            while IFS= read -r asset; do
+              [ -z "$asset" ] && continue
+              if [ -f "_audit/$asset" ]; then
+                printf 'OK      %s -> %s\n' "$(basename "$page")" "$asset"
+              else
+                printf 'MISSING %s -> %s\n' "$(basename "$page")" "$asset"
+                missing=$((missing+1))
+              fi
+            done < <(grep -oE '(src|href)="assets/[^"]+"' "$page" | sed -E 's/^(src|href)="([^"]+)"$/\2/' | sort -u)
+          done
+
+          echo "=== Photo Salon data ==="
+          for f in assets/photo-data-a.js assets/photo-data-b.js assets/photo-data-c.js assets/photo-data-d.js assets/photo-loader.js; do
             if [ -f "_audit/$f" ]; then
-              printf 'OK      %s\n' "$f"
+              echo "OK $f"
             else
-              printf 'MISSING %s\n' "$f"
+              echo "MISSING $f"
               missing=$((missing+1))
             fi
           done
+          photo_refs=$(grep -oE 'data-photo="P[0-9]{2}"' _audit/index.html | sort -u | wc -l)
+          echo "PHOTO_REFS=$photo_refs"
+          [ "$photo_refs" -eq 12 ] || { echo "MISSING Photo Salon references"; missing=$((missing+1)); }
+
+          echo "=== Starlight Chamber ==="
+          for f in star-kv.webp star01.webp star02.webp star03.webp star04.webp star05.webp star06.webp star07.webp star08.webp; do
+            test -s "_audit/assets/images/curated/$f" || { echo "MISSING $f"; missing=$((missing+1)); }
+          done
+
           echo "MISSING_COUNT=$missing"
-          echo "=== curated directory ==="
-          find _audit/assets/images/curated -maxdepth 1 -type f -printf '%f %s bytes\n' 2>/dev/null | sort || true
+          test "$missing" -eq 0
