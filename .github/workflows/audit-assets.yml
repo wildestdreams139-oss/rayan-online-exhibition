@@ -1,0 +1,36 @@
+name: Audit RAYAN V7.1 assets
+
+on:
+  push:
+    branches: ["main"]
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect deploy payload and V7.1 references
+        shell: bash
+        run: |
+          rm -rf _audit
+          mkdir -p _audit
+          unzip -q -o RAYAN_site_payload.zip -d _audit
+          if [ -d v6-overlay ]; then rsync -a v6-overlay/ _audit/; fi
+          mkdir -p _audit/assets
+          rsync -a assets/ _audit/assets/
+          echo "=== required assets ==="
+          missing=0
+          for f in             assets/images/curated/r01.webp assets/images/curated/r02.webp assets/images/curated/r16.webp             assets/images/curated/s01.webp assets/images/curated/s08.webp             assets/images/curated/star-kv.webp assets/images/curated/star01.webp assets/images/curated/star08.webp             assets/photo-data-a.js assets/photo-data-b.js assets/photo-data-c.js assets/photo-data-d.js assets/photo-loader.js; do
+            if [ -f "_audit/$f" ]; then
+              printf 'OK      %s\n' "$f"
+            else
+              printf 'MISSING %s\n' "$f"
+              missing=$((missing+1))
+            fi
+          done
+          echo "MISSING_COUNT=$missing"
+          echo "=== curated directory ==="
+          find _audit/assets/images/curated -maxdepth 1 -type f -printf '%f %s bytes\n' 2>/dev/null | sort || true
