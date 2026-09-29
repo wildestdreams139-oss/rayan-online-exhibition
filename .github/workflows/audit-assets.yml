@@ -57,7 +57,7 @@ jobs:
               missing=$((missing+1))
             fi
           done
-          photo_refs=$(grep -oE 'data-photo="P[0-9]{2}"' _audit/index.html | sort -u | wc -l)
+          photo_refs=$(grep -oE 'data-photo="[Pp][0-9]{2}"' _audit/index.html | sort -u | wc -l || true)
           echo "PHOTO_REFS=$photo_refs"
           [ "$photo_refs" -eq 12 ] || { echo "MISSING Photo Salon references"; missing=$((missing+1)); }
 
