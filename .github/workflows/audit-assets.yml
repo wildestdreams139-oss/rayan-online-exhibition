@@ -39,7 +39,8 @@ jobs:
           for page in _audit/index.html _audit/archive.html _audit/invitation.html _audit/opening-night.html; do
             while IFS= read -r asset; do
               [ -z "$asset" ] && continue
-              if [ -f "_audit/$asset" ]; then
+              file_asset="${asset%%\?*}"
+              if [ -f "_audit/$file_asset" ]; then
                 printf 'OK      %s -> %s\n' "$(basename "$page")" "$asset"
               else
                 printf 'MISSING %s -> %s\n' "$(basename "$page")" "$asset"
@@ -65,6 +66,57 @@ jobs:
           for f in star-kv.webp star01.webp star02.webp star03.webp star04.webp star05.webp star06.webp star07.webp star08.webp; do
             test -s "_audit/assets/images/curated/$f" || { echo "MISSING $f"; missing=$((missing+1)); }
           done
+
+          echo "=== HTML structure and JS syntax ==="
+          node --check _audit/assets/app.js
+          node --check _audit/assets/v6.js
+          node --check _audit/assets/photo-loader.js
+
+          python - <<'PY'
+          from pathlib import Path
+          from html.parser import HTMLParser
+          import sys
+
+          root=Path('_audit')
+          pages=[root/'index.html',root/'archive.html',root/'invitation.html',root/'opening-night.html']
+          failures=[]
+
+          class Audit(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.ids=[]; self.hashrefs=[]; self.lang_half=[]; self.images=[]
+              def handle_starttag(self,tag,attrs):
+                  a=dict(attrs)
+                  if 'id' in a:self.ids.append(a['id'])
+                  if tag=='a' and a.get('href','').startswith('#'):self.hashrefs.append(a['href'][1:])
+                  if ('data-en' in a) ^ ('data-zh' in a):self.lang_half.append((tag,a.get('id',''),a.get('class','')))
+                  if tag=='img':self.images.append(a)
+
+          for page in pages:
+              p=Audit(); p.feed(page.read_text(encoding='utf-8'))
+              ids=set(p.ids)
+              dup=sorted({x for x in p.ids if p.ids.count(x)>1})
+              if dup: failures.append(f'{page.name}: duplicate ids {dup}')
+              missing_hash=sorted({x for x in p.hashrefs if x and x not in ids})
+              if missing_hash: failures.append(f'{page.name}: missing hash targets {missing_hash}')
+              if p.lang_half: failures.append(f'{page.name}: incomplete data-en/data-zh pairs {p.lang_half[:8]}')
+              no_alt=[i.get('src','') for i in p.images if 'alt' not in i]
+              if no_alt: failures.append(f'{page.name}: images without alt attribute {no_alt[:8]}')
+
+          src=(root/'index.html').read_text(encoding='utf-8')
+          for phrase in [
+              'Early drawings, no source photograph.',
+              'The physical source photograph is not part of the public hanging.',
+              'Here Rayan is not photographed beside a celebrity.',
+              'ACCESS GRANTED · UNLISTED ROOM 00'
+          ]:
+              if phrase in src: failures.append(f'stale copy still present: {phrase}')
+
+          if failures:
+              print('\n'.join('FAIL '+x for x in failures))
+              sys.exit(1)
+          print('HTML structure: OK')
+          PY
 
           echo "MISSING_COUNT=$missing"
           test "$missing" -eq 0
