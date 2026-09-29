@@ -248,15 +248,16 @@ function initObserversOnce(){
   $$('[data-stamp]').forEach(el=>io.observe(el));
 }
 
-// SECRET ROOM
+// HIDDEN ROUTE · Stage 1 unlocks Starlight only.
+// The deeper horror rooms are unlocked separately inside Starlight.
 $('#secretForm')?.addEventListener('submit',e=>{
   e.preventDefault();
   const v=$('#secretCode').value.trim().toUpperCase();
   if(v===CONFIG.secretWord){
-    $('#secretMessage').textContent='ACCESS GRANTED · UNLISTED ROOM 00';
+    $('#secretMessage').textContent='ACCESS GRANTED · STARLIGHT CHAMBER';
     $('#secretMessage').className='ok-inline';
     unlockSecret();
-    setTimeout(()=>document.querySelector('#secretroom').scrollIntoView({behavior:'smooth'}),350);
+    setTimeout(()=>document.querySelector('#starlight')?.scrollIntoView({behavior:'smooth'}),350);
   }else{
     $('#secretMessage').textContent='The door stays closed.';
     $('#secretMessage').className='error-inline';
@@ -264,8 +265,8 @@ $('#secretForm')?.addEventListener('submit',e=>{
 });
 function unlockSecret(){
   session.set('rayanSecretUnlocked',true);
-  $('#secretroom')?.classList.remove('is-hidden');
-  $('#secretMapEntry')?.classList.remove('is-hidden');
+  $('#starlight')?.classList.remove('is-hidden');
+  $('#starlightMapEntry')?.classList.remove('is-hidden');
   renderPassport();
 }
 function restoreSecretState(){ if(session.get('rayanSecretUnlocked')) unlockSecret(); }
